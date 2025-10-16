@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Recommendations = () => {
+const Navbar = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Recommendations = () => {
   )
 }
 
-export default Recommendations
+export default Navbar
