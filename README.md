@@ -112,5 +112,5 @@ Data Science : 1. Anitha Sirigireddy
 
 
 Full Stack Development : 1. Shreyas Kandekar
-                         2. Rajoli Srinivas
+                         2. Rajoli Srinivas [email:srinivasrajoli2002@gmail.com] [ GitHub:https://github.com/srinivas-191-creator]
                          3. Malli Prudhvi [email:m.prudhvi4466@gmail.com] [ GitHub:https://github.com/Prudhvi0726-creator]
