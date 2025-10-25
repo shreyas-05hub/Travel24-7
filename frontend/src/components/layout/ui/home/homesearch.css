@@ -1,0 +1,9 @@
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* places it just below the button */
+  left: 0;
+  z-index: 1000;
+}

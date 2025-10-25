@@ -29,10 +29,10 @@ const Footer = () => {
           <div className="col-md-4 col-sm-12 mb-4">
             <h5 className="text-uppercase mb-4 fw-bold text-primary">Follow Us</h5>
             <div className="d-flex social-links">
-              <a className="text-white me-4 fs-4"><i className="fab fa-facebook-f"></i></a>
-              <a className="text-white me-4 fs-4"><i className="fab fa-twitter"></i></a>
-              <a className="text-white me-4 fs-4"><i className="fab fa-instagram"></i></a>
-              <a className="text-white fs-4"><i className="fab fa-pinterest-p"></i></a>
+              <a className="text-white me-4 fs-4"><i className="bi text-white bi-facebook"></i></a>
+              <a className="text-white me-4 fs-4"><i className="bi text-white bi-twitter"></i></a>
+              <a className="text-white me-4 fs-4"><i className="bi text-white bi-instagram"></i></a>
+              <a className="text-white fs-4"><i className="bi text-white bi-pinterest"></i></a>
             </div>
           </div>
         </div>
