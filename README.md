@@ -111,6 +111,6 @@ Data Science : 1. Anitha Sirigireddy
                3. Ganesh Sura [email:ganesh2800139@gmail.com] [ GitHub:https://github.com/ganesh2800139-creator]
 
 
-Full Stack Development : 1. Shreyas Kandekar
+Full Stack Development : 1. Shreyas Kandekar [email:shreyaskandekar07@gmail.com] [ GitHub:https://github.com/shreyas-05hub]
                          2. Rajoli Srinivas [email:srinivasrajoli2002@gmail.com] [ GitHub:https://github.com/srinivas-191]
                          3. Malli Prudhvi [email:m.prudhvi4466@gmail.com] [ GitHub:https://github.com/Prudhvi0726]
