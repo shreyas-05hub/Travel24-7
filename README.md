@@ -108,7 +108,9 @@ This project is licensed under the MIT License – feel free to use and modify i
 
 Data Science : 1. Anitha Sirigireddy
                2. NaveenKumarReddy Bapathi
-               3. Ganesh Sura [email:ganesh2800139@gmail.com] [ GitHub:https://github.com/ganesh2800139-creator]
+               3. Ganesh Sura       
+               [devianiatha5602@gmail.com]
+               [bapathinaveenkumarreddy2@gmail.com][email:ganesh2800139@gmail.com] [ GitHub:https://github.com/ganesh2800139-creator]
 
 
 Full Stack Development : 1. Shreyas Kandekar [email:shreyaskandekar07@gmail.com] [ GitHub:https://github.com/shreyas-05hub]
