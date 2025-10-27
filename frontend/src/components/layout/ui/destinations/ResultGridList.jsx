@@ -1,18 +1,22 @@
 // ResultGridList.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDestinationData } from './DestinationContext';
+
+
+
 
 const ResultGridList = () => {
+  const {setDestination}=useDestinationData()
+  const getDestination=(title="Banglore")=>{
+    setDestination(title)
+    localStorage.setItem("lastDestination",title)
+  }
   const [isListView, setIsListView] = useState(false);
   const columnClass = isListView ? 'col-12' : 'col-12 col-sm-6 col-md-6 col-lg-4';
   const changeView = () => {
     setIsListView(prev => !prev);
   };
-  const sortCities=['Manali', 'Munnar', 'Mysuru', 'Shimla', 'Rann of Kutch', 'Andaman',
-       'Auli', 'Kochi', 'Ooty', 'Alleppey', 'Varanasi', 'Pondicherry',
-       'Darjeeling', 'Goa', 'Chennai', 'Leh-Ladakh', 'Bengaluru',
-       'Rishikesh', 'Kodaikanal', 'Jaipur', 'Mumbai', 'Coorg', 'Agra',
-       'Delhi', 'Jaisalmer']
   const cities = [
     {
       image:"./src/assets/agra.jpeg",
@@ -138,26 +142,27 @@ const ResultGridList = () => {
 ];
 
   return (
-    <div className="container-fluid my-4 text-center">
+      <div className="container-fluid my-4 text-center">
       <button className='btn btn-success my-3' onClick={changeView}>
         {isListView ? 'Switch to Grid View' : 'Switch to List View'}
       </button>
       <h3 className='my-3'>Select To Destination</h3>
       <div className="row">
-        {cities.map((ele)=>
-            <div className={`${columnClass} my-3`}>
-              <Link className='text-decoration-none text-dark' to={"/packages"}>
+        {cities.map((ele,i)=>
+            <div className={`${columnClass} my-3`} key={i}>
+              <Link className='text-decoration-none text-dark' to={"/packages"}  onClick={()=>getDestination(ele.title)}>
                 <div className={`card ${isListView?"w-50 mx-auto":""} h-100`}>
                   <img src={ele.image} className="card-img-top h-100" alt="..."/>
                   <div className="card-body">
                     <h5 className="card-title">{ele.title}</h5>
                     <hr />
                     <p className="card-text">{ele.description}</p>
-                    <a href="#" className="btn btn-primary">See Available Packages</a>
+                    <button className="btn btn-primary">See Available Packages</button>
                   </div>
                 </div>
               </Link>
           </div>
+          
         )}
       </div>
     </div>
@@ -165,3 +170,4 @@ const ResultGridList = () => {
 };
 
 export default ResultGridList;
+

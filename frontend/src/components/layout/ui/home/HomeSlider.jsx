@@ -17,7 +17,7 @@ const HomeSlider = () => {
             <div className={`carousel-item ${activeIndex==0?"active":""}`}>
                 <div className='row'>
                     <div className="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium'>
+                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium text-dark'>
                             Goa is a state in western India with coastlines stretching along the Arabian Sea. Its long history as a Portuguese colony prior to 1961 is evident in its preserved 17th-century churches and the area’s tropical spice plantations. Goa is also known for its beaches, ranging from popular stretches at Baga and Palolem to those in laid-back fishing villages such as Agonda.
                         </p>
                     </div>
@@ -28,7 +28,7 @@ const HomeSlider = () => {
                 <div className='row'>
                     <div className="col-12 col-sm-12 col-md-6 col-lg-6"><img src="./src/assets/ooty.jpg" className="d-block w-100 img-fluid" alt="..." style={{height:"500px"}}/></div>
                     <div className="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium'>
+                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium text-dark'>
                             Ooty (short for Udhagamandalam) is a resort town in the Western Ghats mountains, in southern India's Tamil Nadu state. Founded as a British Raj summer resort, it retains a working steam railway line. Other reminders of its colonial past include Stone House, a 19th-century residence, and the circa-1829 St. Stephen’s Church. Its 55-acre Government Botanical Garden lies on the slopes of Doddabetta Peak.
                         </p>
                     </div>
@@ -37,7 +37,7 @@ const HomeSlider = () => {
             <div className={`carousel-item ${activeIndex==2?"active":""}`}>
                 <div className='row'>
                     <div className="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium'>
+                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium text-dark'>
                             Jaisalmer is a former medieval trading center and a princely state in the western Indian state of Rajasthan, in the heart of the Thar Desert. Known as the "Golden City," it's distinguished by its yellow sandstone architecture. Dominating the skyline is Jaisalmer Fort, a sprawling hilltop citadel buttressed by 99 bastions. Behind its massive walls stand the ornate Maharaja's Palace and intricately carved Jain temples.
                         </p>
                     </div>
@@ -48,7 +48,7 @@ const HomeSlider = () => {
                 <div className='row'>
                     <div className="col-12 col-sm-12 col-md-6 col-lg-6"><img src="./src/assets/udaipur.jpeg" className="d-block w-100 img-fluid" alt="..." style={{height:"500px"}}/></div>
                     <div className="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium'>
+                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium text-dark'>
                             Udaipur, formerly the capital of the Mewar Kingdom, is a city in the western Indian state of Rajasthan. Founded by Maharana Udai Singh II in 1559, it’s set around a series of artificial lakes and is known for its lavish royal residences. City Palace, overlooking Lake Pichola, is a monumental complex of 11 palaces, courtyards and gardens, famed for its intricate peacock mosaics.
                         </p>
                     </div>
@@ -57,7 +57,7 @@ const HomeSlider = () => {
             <div className={`carousel-item ${activeIndex==4?"active":""}`}>
                 <div className='row'>
                     <div className="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium'>
+                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium text-dark'>
                             Varanasi is a city in the northern Indian state of Uttar Pradesh dating to the 11th century B.C. Regarded as the spiritual capital of India, the city draws Hindu pilgrims who bathe in the Ganges River’s sacred waters and perform funeral rites. Along the city's winding streets are some 2,000 temples, including Kashi Vishwanath, the “Golden Temple,” dedicated to the Hindu god Shiva.</p>
                     </div>
                     <div className="col-12 col-sm-12 col-md-6 col-lg-6"><img src="./src/assets/varanasi.jpg" className="d-block w-100 img-fluid" alt="..." style={{height:"500px"}}/></div>
@@ -67,7 +67,7 @@ const HomeSlider = () => {
                 <div className='row'>
                     <div className="col-12 col-sm-12 col-md-6 col-lg-6"><img src="./src/assets/manali.jpeg" className="d-block w-100 img-fluid" alt="..." style={{height:"500px"}}/></div>
                     <div className="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium'>
+                        <p className='my-5 fs-5 w-50 mx-auto fw-meduium text-dark'>
                             Manali is a high-altitude Himalayan resort town in India’s northern Himachal Pradesh state. It has a reputation as a backpacking center and honeymoon destination. Set on the Beas River, it’s a gateway for skiing in the Solang Valley and trekking in Parvati Valley. It's also a jumping-off point for paragliding, rafting and mountaineering in the Pir Panjal mountains, home to 4,000m-high Rohtang Pass.
                         </p>
                     </div>

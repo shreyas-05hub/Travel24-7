@@ -3,6 +3,7 @@ import { NavLink,useNavigate } from 'react-router-dom';
 import { Button, Avatar } from 'antd';
 import useTravelCost from './context/TravelContext';
 import { toast } from 'react-toastify';
+import "./navlink.css"
 
 
 const Navbar = () => {
@@ -25,10 +26,10 @@ const Navbar = () => {
     }
   }
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light"> 
+    <nav className="navbar navbar-expand-lg bg-light"> 
       <div className="container-fluid">
         {/* Bootstrap brand/logo class */}
-        <NavLink to="/" className="navbar-brand">
+        <NavLink to="/" className="navbar-brand fs-4 text-primary">
           TravelSite 
         </NavLink>
 
@@ -44,10 +45,10 @@ const Navbar = () => {
         {/* Collapsible content for the navigation links */}
         <div className={`collapse navbar-collapse ${isToggle?"":"show"}`} id="navbarNav">
           {/* Bootstrap class for unordered list of links */}
-          <ul className="navbar-nav mx-auto mb-2 mb-lg-0 "> 
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0"> 
             {/* Nav Item (li) and Nav Link (NavLink) classes */}
             <li className="nav-item">
-              <NavLink to="/" className="nav-link">Home</NavLink>
+              <NavLink to="/home" className="nav-link">Home</NavLink>
             </li>
             <li className="nav-item">
               <NavLink to="/destinations" className="nav-link">Destinations</NavLink>
