@@ -3,6 +3,7 @@ import React, { useContext, createContext, useState, useEffect } from "react";
 export const PackageContext = createContext();
 const PackageProvider = ({ children }) => {
   const [Package, setPackage] = useState([]);
+  console.log(Package);
   useEffect(() => {
     if (!Package || Object.keys(Package).length === 0) {
       const saved = localStorage.getItem("lastPackage");

@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 const PackageType = () => {
   const { Package } = usePackageData();
-  console.log(Package);
-  const { type, imgUrl, description, budget, duration, recommendations } =
+  console.log("pckg",Package);
+  const { type, imgUrl, description, budget, duration, recommendations=[] } =
     Package;
   console.log(budget);
   console.log(duration);
-  console.log(recommendations);
+  console.log("rrr",recommendations);
   return (
     <div className="container-fluid">
       <div className="container">

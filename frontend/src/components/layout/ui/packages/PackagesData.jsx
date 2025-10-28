@@ -16,6 +16,7 @@ const PackagesData = () => {
   const { destinationTypes } = data;
   console.log(destinationTypes);
   const { setPackage } = usePackageData();
+  console.log("sp",setPackage)
   const getPackage = (ele) => {
     const enrichedPackage = {
       ...ele,
