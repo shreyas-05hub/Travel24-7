@@ -59,6 +59,9 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink to="/recommendation" className="nav-link">AI Recommendations</NavLink>
             </li>
+            <li className='nav-item'>
+              <NavLink to={"/favourites"} className={"nav-link"}>Favourites</NavLink>
+            </li>
           </ul>
           <div className='d-flex gap-3 align-items-center'>
             {user && <div className='d-flex align-items-center gap-1'><Avatar src={user.photo || "u"}/><p>{user.name || "user"}</p></div>}

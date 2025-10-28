@@ -65,7 +65,7 @@ const ResultGridList = () => {
       description:"The capital that tells India’s story — a blend of Mughal monuments, bustling markets, and cosmopolitan experiences."
     },
     {
-      image:"./src/assets/goa.jpeg",
+      image:"./src/assets/Goa.webp",
       title:"Goa",
       description:"India’s ultimate beach escape — golden sands, thrilling water sports, lively nightlife, and Portuguese charm await."
     },
@@ -83,6 +83,11 @@ const ResultGridList = () => {
       image:"./src/assets/kochi.jpeg",
       title:"Kochi",
       description:"Where history meets the sea — explore spice markets, backwaters, and a unique fusion of cultures in this coastal gem."
+    },
+    {
+      image:"./src/assets/kodaikanal.jpeg",
+      title:"Kodaikanal",
+      description:"The Princess of Hill Stations — with misty lakes, pine forests, and romantic viewpoints"
     },
     {
       image:"./src/assets/lehladak.webp",

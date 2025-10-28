@@ -21,7 +21,7 @@ const HomeSlider = () => {
                             Goa is a state in western India with coastlines stretching along the Arabian Sea. Its long history as a Portuguese colony prior to 1961 is evident in its preserved 17th-century churches and the area’s tropical spice plantations. Goa is also known for its beaches, ranging from popular stretches at Baga and Palolem to those in laid-back fishing villages such as Agonda.
                         </p>
                     </div>
-                    <div className="col-12 col-sm-12 col-md-6 col-lg-6"><img src="./src/assets/North_Goa_Baga_Beach.webp" className="d-block w-100 img-fluid" alt="..." style={{height:"500px"}}/></div>
+                    <div className="col-12 col-sm-12 col-md-6 col-lg-6"><img src="./src/assets/Goa.webp" className="d-block w-100 img-fluid" alt="..." style={{height:"500px"}}/></div>
                 </div>            
             </div>
             <div className={`carousel-item ${activeIndex==1?"active":""}`}>

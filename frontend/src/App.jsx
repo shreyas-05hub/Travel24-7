@@ -12,6 +12,7 @@ import DestinationProvider from './components/layout/ui/destinations/Destination
 import PackageProvider from './components/layout/ui/packages/PackageProvider';
 // import PackageDetails from './components/layout/ui/packages/PackageDetails';
 
+
 import "./app.css"
 
 let Home=React.lazy(()=>import('./pages/Home'))
@@ -20,6 +21,7 @@ let Recommendations=React.lazy(()=>import('./pages/Recommendations'))
 let Destinations=React.lazy(()=>import('./pages/Destinations'))
 let Login=React.lazy(()=>import('./pages/Login'))
 let PackageDetails=React.lazy(()=>import('./components/layout/ui/packages/PackageDetails'))
+let Favourites=React.lazy(()=>import('./pages/Favourites'))
 
 const App = () => {
   return (
@@ -35,6 +37,7 @@ const App = () => {
                       <Route path='/:packageID' element={<PackageDetails/>}/>
                       <Route path={"/recommendation"} element={<Recommendations />} />
                       <Route path={"/Destinations"} element={<Destinations />} />
+                      <Route path={"/favourites"} element={<Favourites />} />
                       <Route path={'/login'} element={<Login/>}/>
                   </Routes>
                 </Suspense>

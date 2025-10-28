@@ -3,7 +3,7 @@ let packageData={
     "destinationTypes": [
       {
         "type": "Mountain",
-        "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Solang_Valley_Manali.jpg",
+        "imgUrl": "./src/assets/manalimountain.jpeg",
         "description": "Mountain experiences in Manali feature top attractions and activities related to mountain travel. Explore top spots, stays and curated itineraries.",
         "recommendations": [
           {
