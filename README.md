@@ -106,13 +106,10 @@ This project is licensed under the MIT License – feel free to use and modify i
 
 👨‍💻 Author
 
-Data Science : 1. Anitha Sirigireddy
-               2. NaveenKumarReddy Bapathi
-               3. Ganesh Sura       
-               [devianiatha5602@gmail.com]
-               [bapathinaveenkumarreddy2@gmail.com][email:ganesh2800139@gmail.com] [ GitHub:https://github.com/ganesh2800139-creator]
-
-
+Data Science : 1. Anitha Sirigireddy  [devianiatha5602@gmail.com] 
+               2. NaveenKumarReddy Bapathi  [bapathinaveenkumarreddy2@gmail.com]
+               3. Ganesh Sura  [email:ganesh2800139@gmail.com] [ GitHub:https://github.com/ganesh2800139-creator]
+             
 Full Stack Development : 1. Shreyas Kandekar [email:shreyaskandekar07@gmail.com] [ GitHub:https://github.com/shreyas-05hub]
                          2. Rajoli Srinivas [email:srinivasrajoli2002@gmail.com] [ GitHub:https://github.com/srinivas-191]
                          3. Malli Prudhvi [email:m.prudhvi4466@gmail.com] [ GitHub:https://github.com/Prudhvi0726]
