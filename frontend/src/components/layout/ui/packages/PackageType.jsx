@@ -34,4 +34,3 @@ const PackageType = () => {
 }
 
 export default PackageType
-329856000
