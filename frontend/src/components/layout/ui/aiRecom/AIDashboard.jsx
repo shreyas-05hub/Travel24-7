@@ -2,26 +2,11 @@ import React, { useState } from "react";
 import "./aidashboard.css";
 
 let destinations = [
-  "Madurai",
-  "Jaipur",
-  "Lucknow",
-  "Kochi",
-  "Varanasi",
-  "Delhi",
-  "Pune",
-  "Nagpur",
-  "Goa",
-  "Hyderabad",
-  "Bhubaneswar",
-  "Chandigarh",
-  "Kolkata",
-  "Chennai",
-  "Coimbatore",
-  "Visakhapatnam",
-  "Mumbai",
-  "Bengaluru",
-  "Indore",
-  "Ahmedabad",
+  'Munnar', 'Mysuru', 'Shimla', 'Rann of Kutch', 'Andaman',
+       'Auli', 'Kochi', 'Ooty', 'Alleppey', 'Varanasi', 'Pondicherry',
+       'Darjeeling', 'Goa', 'Chennai', 'Leh-Ladakh', 'Bengaluru',
+       'Rishikesh', 'Kodaikanal', 'Jaipur', 'Mumbai', 'Coorg', 'Agra',
+       'Delhi', 'Jaisalmer'
 ];
 
 let TravelType = [
