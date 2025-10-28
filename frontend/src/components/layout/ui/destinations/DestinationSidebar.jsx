@@ -1,25 +1,54 @@
 // PackageSidebar.jsx
-import React from 'react';
-import './destinationSidebar.css';
-
+import React from "react";
+import "./destinationSidebar.css";
 
 const DestinationSidebar = () => {
   return (
-      <div className="w-100 sidebar text-primary text-center p-3">
-        <h5 className="mb-3">Enter Your Travel Preferences</h5>
-        <div className='form'>
-          <div className='my-3'>
-            <label htmlFor="fromCity" className='my-1'>Select From_City</label>
-            <select className="form-select my-3 w-50 mx-auto" id="fromCity" onChange={(e)=>dispatch({type:"SELECT_CITY",val:e.target.value})}>
-              {['Madurai', 'Jaipur', 'Lucknow', 'Kochi', 'Varanasi', 'Delhi',
-                'Pune', 'Nagpur', 'Goa', 'Hyderabad', 'Bhubaneswar', 'Chandigarh',
-                'Kolkata', 'Chennai', 'Coimbatore', 'Visakhapatnam', 'Mumbai',
-                'Bengaluru', 'Indore', 'Ahmedabad'].sort().map((item,index)=>(
-                  <option key={index} value={item}>{item}</option>
-                ))}
-            </select>
-          </div>
-          {/* <div className='my-3'>
+    <div className="w-100 sidebar text-primary text-center p-3">
+      <h5 className="mb-3">Enter Your Travel Preferences</h5>
+      <div className="form">
+        <div className="my-3">
+          <label htmlFor="fromCity" className="my-1">
+            Select From_City
+          </label>
+          <select
+            className="form-select my-3 w-50 mx-auto"
+            id="fromCity"
+            onChange={(e) =>
+              dispatch({ type: "SELECT_CITY", val: e.target.value })
+            }
+          >
+            {[
+              "Madurai",
+              "Jaipur",
+              "Lucknow",
+              "Kochi",
+              "Varanasi",
+              "Delhi",
+              "Pune",
+              "Nagpur",
+              "Goa",
+              "Hyderabad",
+              "Bhubaneswar",
+              "Chandigarh",
+              "Kolkata",
+              "Chennai",
+              "Coimbatore",
+              "Visakhapatnam",
+              "Mumbai",
+              "Bengaluru",
+              "Indore",
+              "Ahmedabad",
+            ]
+              .sort()
+              .map((item, index) => (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              ))}
+          </select>
+        </div>
+        {/* <div className='my-3'>
             <label htmlFor="destination" className='my-1'>Select Destination</label>
             <select className="form-select" id="destination" onChange={(e)=>dispatch({type:"SELECT_DESTINATION",val:e.target.value})}>
               {['goa', 'mumbai', 'leh-ladakh', 'auli', 'delhi', 'rann of kutch', 'coorg',
@@ -55,7 +84,7 @@ const DestinationSidebar = () => {
             <label htmlFor="approx" className='my-1'>Approx_Cost</label>
             <input type='number'min={4000} className='form-control' id="approx" value={state.approx} onChange={(e)=>dispatch({type:"APPROXIMATION_TYPE",val:e.target.value})}/>
           </div> */}
-          {/* <div className='my-3'>
+        {/* <div className='my-3'>
             <label htmlFor="accommodation" className='my-1'>Accommodation_Type</label>
             <select className="form-select" id="accommodation" onChange={(e)=>dispatch({type:"ACCOMODATION_TYPE",val:e.target.value})}>
               {["Homestay", "Hotel", "Resort", "Camping"].map((item,index)=>(
@@ -83,9 +112,8 @@ const DestinationSidebar = () => {
                 ))}
             </select>
           </div> */}
-        </div>
       </div>
+    </div>
   );
 };
 export default DestinationSidebar;
-

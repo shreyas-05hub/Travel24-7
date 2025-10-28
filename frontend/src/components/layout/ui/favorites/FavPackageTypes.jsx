@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import packageData from '../../data/packageData';
+import React, { useState } from "react";
+import packageData from "../../data/packageData";
 
 const FavPackageTypes = () => {
   const [favorites, setFavorites] = useState(() => {
@@ -7,7 +7,7 @@ const FavPackageTypes = () => {
   });
 
   const handleRemove = (type) => {
-    const updated = favorites.filter(fav => fav !== type);
+    const updated = favorites.filter((fav) => fav !== type);
     setFavorites(updated);
     localStorage.setItem("favoritePackageTypes", JSON.stringify(updated));
   };
@@ -19,16 +19,27 @@ const FavPackageTypes = () => {
         {favorites.map((type, i) => {
           const [destinationName, packageType] = type.split("-");
           const destination = packageData[destinationName];
-          const card = destination?.destinationTypes.find(dt => dt.type === packageType);
+          const card = destination?.destinationTypes.find(
+            (dt) => dt.type === packageType
+          );
 
           return card ? (
             <div className="col-md-4 py-3" key={i}>
               <div className="card">
-                <img src={card.imgUrl} className="card-img-top" alt={card.type} />
+                <img
+                  src={card.imgUrl}
+                  className="card-img-top"
+                  alt={card.type}
+                />
                 <div className="card-body">
                   <h5 className="card-title">{card.type}</h5>
                   <p className="card-text">{card.description}</p>
-                  <button className='btn btn-danger' onClick={() => handleRemove(type)}>Remove</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleRemove(type)}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             </div>

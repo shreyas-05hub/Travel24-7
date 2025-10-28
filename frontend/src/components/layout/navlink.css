@@ -1,9 +1,11 @@
-.nav-link{
+.nav-link {
     color: rgb(64, 0, 255) !important;
 }
-.active{
+
+.active {
     color: orangered !important;
 }
-.navbar{
+
+.navbar {
     background-color: #f5f7e4f1;
 }
