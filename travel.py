@@ -10,7 +10,7 @@ from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("travel_packages_200k.csv")  # update with your file name
+    df = pd.read_csv("Travels_Pack.csv")  # update with your file name
     return df
 
 df = load_data()
