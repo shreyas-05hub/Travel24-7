@@ -13,7 +13,7 @@ The app analyzes a large dataset of real-world travel packages and finds the mos
 ✅ Data Preprocessing – Utilizes OneHotEncoder for categorical encoding and MinMaxScaler for numerical normalization.
 ✅ Dynamic Filtering – Destination and type dropdowns update automatically based on the selected departure city.
 ✅ Similarity Score Display – Shows how close each recommendation is to the user’s preferences.
-✅ Scalable Design – Efficiently handles large datasets (200k+ records) without performance issues.
+✅ Scalable Design – Efficiently handles large datasets  without performance issues.
 
 🏗️ Tech Stack
 Component	Description
