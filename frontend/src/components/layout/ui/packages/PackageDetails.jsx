@@ -17,7 +17,7 @@ const PackageDetails = () => {
   console.log(packageDetails);
 
   return (
-    <div className="container-fluid min-vh-100 my-5" style={{backgroundImage:`url(./src/assets/assets1/${destination}_${type.toLowerCase().replaceAll(" ","")}.jpg)`,
+    <div className="container-fluid min-vh-100" style={{backgroundImage:`url(./src/assets/assets1/${destination}_${type.toLowerCase().replaceAll(" ","")}.jpg)`,
               backgroundRepeat:"no-repeat",backgroundSize:"cover"}}>
       <div className="container">
         <div className="row">
