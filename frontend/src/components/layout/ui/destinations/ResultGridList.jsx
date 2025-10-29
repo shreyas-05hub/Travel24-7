@@ -116,7 +116,7 @@ const ResultGridList = () => {
     },
     {
       image: "./src/assets/munaar.jpeg",
-      title: "Munaar",
+      title: "Munnar",
       description:
         "A misty hill station blanketed with tea gardens, waterfalls, and lush greenery — an ideal spot for peace and nature lovers.",
     },

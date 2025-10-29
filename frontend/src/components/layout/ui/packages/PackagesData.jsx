@@ -146,7 +146,7 @@ const PackagesData = () => {
             return (
               <div className="col-12 col-sm-12 col-md-6 col-lg-4 py-3" key={i}>
                 <div className="card">
-                  <img src={`./src/assets/assets1/${destination}_${ele.type.toLowerCase().replaceAll(" ","")}.jpg`} className="card-img-top" alt="..." />
+                  <img src={`./src/assets/assets1/${destination}_${ele.type.toLowerCase().replaceAll(" ","")}.jpg`} className="card-img-top" style={{height:"300px"}} alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">{ele.type}</h5>
                     <p className="card-text">{ele.description}</p>
