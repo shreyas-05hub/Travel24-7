@@ -188,11 +188,7 @@ import React, { useState } from "react";
 import "./aidashboard.css";
 
 // -----------------------------------------
-<<<<<<< HEAD
 // 🏙️ Static Data Lists
-=======
-// 🏙 Static Data Lists
->>>>>>> 35b236bd98caaa17cb8aa2599cd8d0c073799f19
 // -----------------------------------------
 let destinations = [
   "Munnar", "Mysuru", "Shimla", "Rann of Kutch", "Andaman",
@@ -214,11 +210,7 @@ let TravelType = [
 ];
 
 // -----------------------------------------
-<<<<<<< HEAD
 // ⚙️ React Component
-=======
-// ⚙ React Component
->>>>>>> 35b236bd98caaa17cb8aa2599cd8d0c073799f19
 // -----------------------------------------
 const AIDashboard = () => {
   // 🧭 State Variables
@@ -255,22 +247,14 @@ const AIDashboard = () => {
       const result = await response.json();
 
       if (response.ok) {
-<<<<<<< HEAD
         console.log("✅ Recommendations Received:", result.recommendations);
-=======
-        console.log("✅ Recommendations Received:", result);
->>>>>>> 35b236bd98caaa17cb8aa2599cd8d0c073799f19
         setFormData(result.recommendations);
       } else {
         console.error("❌ Server Error:", result.error);
         alert("Server Error: " + result.error);
       }
     } catch (error) {
-<<<<<<< HEAD
       console.error("⚠️ Request Failed:", error);
-=======
-      console.error("⚠ Request Failed:", error);
->>>>>>> 35b236bd98caaa17cb8aa2599cd8d0c073799f19
       alert("Error connecting to Flask server. Make sure it's running on port 5000.");
     } finally {
       setLoading(false);
@@ -278,11 +262,7 @@ const AIDashboard = () => {
   };
 
   // -----------------------------------------
-<<<<<<< HEAD
   // ♻️ Reset Form
-=======
-  // ♻ Reset Form
->>>>>>> 35b236bd98caaa17cb8aa2599cd8d0c073799f19
   // -----------------------------------------
   const handleReset = () => {
     setDepartureCity("");
@@ -302,11 +282,7 @@ const AIDashboard = () => {
   const decreaseBudget = () => setRangeValue((prev) => (prev > 1000 ? prev - 1000 : 1000));
 
   // -----------------------------------------
-<<<<<<< HEAD
   // 🖥️ UI Render
-=======
-  // 🖥 UI Render
->>>>>>> 35b236bd98caaa17cb8aa2599cd8d0c073799f19
   // -----------------------------------------
   return (
     <>
@@ -316,11 +292,7 @@ const AIDashboard = () => {
           
           {/* Departure City */}
           <label htmlFor="departureCity" className="my-3 fw-bold fs-5">
-<<<<<<< HEAD
             ✈️ Select your Departure City:
-=======
-            ✈ Select your Departure City:
->>>>>>> 35b236bd98caaa17cb8aa2599cd8d0c073799f19
           </label>
           <select
             id="departureCity"
@@ -352,11 +324,7 @@ const AIDashboard = () => {
 
           {/* Destination Type */}
           <label htmlFor="travelType" className="my-3 fw-bold fs-5">
-<<<<<<< HEAD
             🏖️ Select Destination Type:
-=======
-            🏖 Select Destination Type:
->>>>>>> 35b236bd98caaa17cb8aa2599cd8d0c073799f19
           </label>
           <select
             id="travelType"
@@ -372,11 +340,7 @@ const AIDashboard = () => {
 
           {/* Duration */}
           <label htmlFor="duration" className="my-3 fw-bold fs-5">
-<<<<<<< HEAD
             ⏱️ Trip Duration (Days):
-=======
-            ⏱ Trip Duration (Days):
->>>>>>> 35b236bd98caaa17cb8aa2599cd8d0c073799f19
           </label>
           <div className="input-group">
             <button

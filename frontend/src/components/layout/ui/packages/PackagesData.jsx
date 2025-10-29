@@ -3,12 +3,15 @@ import { useDestinationData } from "../destinations/DestinationContext";
 import packageData from "../../data/packageData";
 import { usePackageData } from "./PackageProvider";
 import FavPackageTypes from "../favorites/FavPackageTypes";
+import { useFromcityData } from "../destinations/FromcityContext";
 
 const PackagesData = () => {
   const [favorites, setFavorites] = useState(() => {
     const stored = localStorage.getItem("favoritePackageTypes");
     return stored ? JSON.parse(stored) : [];
   });
+  const { Fromcity } = useFromcityData();
+  console.log("Fromcity in PackagesData:", Fromcity);
   const [rangeValue, setRangeValue] = useState(3000);
   const [duration, setDuration] = useState(2);
   const { destination } = useDestinationData();
@@ -18,11 +21,15 @@ const PackagesData = () => {
   const { setPackage } = usePackageData();
   console.log("sp",setPackage)
   const getPackage = (ele) => {
+    console.log("ele", ele);
     const enrichedPackage = {
       ...ele,
+      fromCity: Fromcity,
+      toCity: destination,
       budget: rangeValue,
       duration: duration,
     };
+    console.log("enrichedPackage", enrichedPackage);
     setPackage(enrichedPackage);
     localStorage.setItem("lastPackage", JSON.stringify(enrichedPackage));
   };

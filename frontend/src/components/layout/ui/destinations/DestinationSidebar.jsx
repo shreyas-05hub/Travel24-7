@@ -1,8 +1,11 @@
 // PackageSidebar.jsx
 import React from "react";
 import "./destinationSidebar.css";
+import { useFromcityData } from "./FromcityContext";
 
 const DestinationSidebar = () => {
+  const { Fromcity, setFromcity } = useFromcityData();
+  console.log("Fromcity in Sidebar:", Fromcity);
   return (
     <div className="w-100 sidebar text-primary text-center p-3">
       <h5 className="mb-3">Enter Your Travel Preferences</h5>
@@ -13,10 +16,8 @@ const DestinationSidebar = () => {
           </label>
           <select
             className="form-select my-3 w-50 mx-auto"
-            id="fromCity"
-            onChange={(e) =>
-              dispatch({ type: "SELECT_CITY", val: e.target.value })
-            }
+            value={Fromcity}
+            onChange={(e) => setFromcity(e.target.value)}
           >
             {[
               "Madurai",

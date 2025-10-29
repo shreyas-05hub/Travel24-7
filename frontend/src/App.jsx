@@ -11,6 +11,7 @@ import { Navigate } from "react-router-dom";
 import DestinationProvider from "./components/layout/ui/destinations/DestinationContext";
 import PackageProvider from "./components/layout/ui/packages/PackageProvider";
 // import PackageDetails from './components/layout/ui/packages/PackageDetails';
+import FromcityProvider from "./components/layout/ui/destinations/FromcityContext";
 
 import "./app.css";
 
@@ -28,6 +29,7 @@ const App = () => {
   return (
     <>
       <Navbar />
+      <FromcityProvider>
       <PackageProvider>
         <DestinationProvider>
           <Suspense fallback={<p className="loader"></p>}>
@@ -44,6 +46,7 @@ const App = () => {
           </Suspense>
         </DestinationProvider>
       </PackageProvider>
+      </FromcityProvider>
       <Footer />
     </>
   );

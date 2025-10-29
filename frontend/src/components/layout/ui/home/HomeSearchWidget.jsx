@@ -5,16 +5,19 @@ import { Link } from "react-router-dom";
 const HomeSearchWidget = () => {
   const [searchTerm, setSearchTerm] = useState("");
   let statesList = [
+    "Ahmedabad",
+    "Bengaluru",
+    "Chennai",
+    "Delhi",
+    "Goa",
+    "Hyderabad",
+    "Jaipur",
+    "Kolkata",
+    "Lucknow",
+    "Mumbai",
+    "Pune",
+    "Surat",
     "Visakhapatnam",
-    "Tirupati",
-    "Vijayawada",
-    "Amaravati",
-    "Rajamahendravaram",
-    "Srikalahasti",
-    "Kurnool",
-    "Kadapa",
-    "Nellore",
-    "Anantapur",
   ];
 
   const states = statesList.filter((state) => {
@@ -25,11 +28,11 @@ const HomeSearchWidget = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center ai">
-            <h1 className="text-center">Destination Search with AI</h1>
+            <h1 className="text-center">Destination Search </h1>
             <div className="px-5 py-2">
               <div>
                 <label htmlFor="travelPlace" className="form-label fs-5">
-                  Trip (please Select the state.)
+                  Trip (please Select the city.)
                 </label>
               </div>
               <div className="">
