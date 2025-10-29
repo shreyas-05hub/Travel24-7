@@ -109,12 +109,6 @@ const ResultGridList = () => {
         "A land of high passes — rugged beauty, monasteries, and adventure on the world’s most scenic roads.",
     },
     {
-      image: "./src/assets/manali.jpeg",
-      title: "Manali",
-      description:
-        "A Himalayan paradise of snow-capped peaks, adventure sports, and serene valleys — the perfect romantic and thrill-seeker’s escape",
-    },
-    {
       image: "./src/assets/mumbai.jpeg",
       title: "Mumbai",
       description:
