@@ -1,11 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { usePackageData } from "./PackageProvider";
+import { useDestinationData } from "../destinations/DestinationContext";
 
 const PackageDetails = () => {
   const { packageID } = useParams();
   console.log(packageID);
   const { Package } = usePackageData();
+  const { destination } = useDestinationData();
 
   const { type, imgUrl, description, budget, duration, recommendations } =
     Package;
@@ -15,16 +17,12 @@ const PackageDetails = () => {
   console.log(packageDetails);
 
   return (
-    <div className="container-fluid min-vh-100 my-5">
+    <div className="container-fluid min-vh-100" style={{backgroundImage:`url(./src/assets/assets1/${destination}_${type.toLowerCase().replaceAll(" ","")}.jpg)`,
+              backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center center"}}>
       <div className="container">
         <div className="row">
           <div className="col-12">
             <div className="card m-3">
-              <img
-                src={packageDetails.imgUrl}
-                className="card-img-top"
-                alt="..."
-              />
               <div className="card-body">
                 <h5 className="card-title">Title: {packageDetails.name}</h5>
                 <p className="card-text fw-bold fs-5">
