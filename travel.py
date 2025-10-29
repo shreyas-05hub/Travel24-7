@@ -13,7 +13,7 @@ from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 # -------------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("realistic_final_travel_packages_dataset_v4.csv")  # update with your file name
+    df = pd.read_csv("packagedata_with_id.csv")  # update with your file name
     return df
 
 df = load_data()
@@ -98,7 +98,7 @@ recommended_trips = recommended_trips.loc[:, ~recommended_trips.columns.duplicat
 recommended_trips.columns = recommended_trips.columns.str.strip()
 
 # Columns to show in UI
-columns_to_show = [
+columns_to_show = ['Package_Id',
     'Package_Type', 'From_City', 'Destination', 'Destination_Type',
     'Trip_Duration_Days', 'Budget',
     'Accommodation', 'Transport_Mode', 'Activities_Count',
@@ -122,3 +122,4 @@ else:
             if "Similarity" in recommended_trips.columns else None
         )
     )
+
