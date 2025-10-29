@@ -20,19 +20,55 @@ const PackagesData = () => {
   console.log(destinationTypes);
   const { setPackage } = usePackageData();
   console.log("sp",setPackage)
-  const getPackage = (ele) => {
-    console.log("ele", ele);
-    const enrichedPackage = {
-      ...ele,
-      fromCity: Fromcity,
-      toCity: destination,
-      budget: rangeValue,
-      duration: duration,
-    };
-    console.log("enrichedPackage", enrichedPackage);
-    setPackage(enrichedPackage);
-    localStorage.setItem("lastPackage", JSON.stringify(enrichedPackage));
+  
+  const getPackage = async (ele) => {
+  const enrichedPackage = {
+    ...ele,
+    fromCity: Fromcity,
+    toCity: destination,
+    budget: rangeValue,
+    duration: duration,
   };
+
+  console.log("Sending enrichedPackage:", enrichedPackage);
+
+  // Save locally (still useful)
+  setPackage(enrichedPackage);
+  localStorage.setItem("lastPackage", JSON.stringify(enrichedPackage));
+
+  // ✅ Extract only required fields for the backend
+  const payload = {
+    fromCity: enrichedPackage.fromCity,
+    toCity: enrichedPackage.toCity,
+    type: enrichedPackage.type,
+    duration: enrichedPackage.duration,
+    budget: enrichedPackage.budget,
+  };
+
+  try {
+    const response = await fetch("http://127.0.0.1:5000/api/recommend", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    console.log("Response from backend:", result);
+
+    // You can handle response here (e.g., show recommendations)
+    alert(`Recommendations received for ${destination}!`);
+  } catch (error) {
+    console.error("Error sending data:", error);
+    alert("Failed to send data to backend. Check console for details.");
+  }
+};
+
   const [feedback, setFeedback] = useState({});
 
   useEffect(() => {
