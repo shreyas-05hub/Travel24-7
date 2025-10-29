@@ -15,7 +15,7 @@ const PackageType = () => {
   console.log(type)
   console.log("rrr",recommendations);
   return (
-    <div className="container-fluid">
+    <>
        <h3 className="text-center">
           {recommendations.length > 0 ? "Top Recommendations" : ""}
         </h3>
@@ -38,7 +38,7 @@ const PackageType = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
