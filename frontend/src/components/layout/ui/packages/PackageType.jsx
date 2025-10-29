@@ -20,7 +20,7 @@ const PackageType = () => {
           {recommendations.length > 0 ? "Top Recommendations" : ""}
         </h3>
       <div className="container-fluid text-center" style={{backgroundImage:`url(./src/assets/assets1/${destination}_${type.toLowerCase().replaceAll(" ","")}.jpg)`,
-              backgroundRepeat:"no-repeat",backgroundSize:"cover"}}>
+              backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center center"}}>
         <div className="row">
           {recommendations.map((ele, i) => (
             <div className="col-12" key={i} >

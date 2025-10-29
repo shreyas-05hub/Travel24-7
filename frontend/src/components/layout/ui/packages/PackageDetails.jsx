@@ -18,7 +18,7 @@ const PackageDetails = () => {
 
   return (
     <div className="container-fluid min-vh-100" style={{backgroundImage:`url(./src/assets/assets1/${destination}_${type.toLowerCase().replaceAll(" ","")}.jpg)`,
-              backgroundRepeat:"no-repeat",backgroundSize:"cover"}}>
+              backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center center"}}>
       <div className="container">
         <div className="row">
           <div className="col-12">
