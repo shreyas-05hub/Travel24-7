@@ -119,11 +119,12 @@ def recommend():
         ]
         available_columns = [col for col in columns_to_show if col in recommended_trips.columns]
         print(recommended_trips[available_columns])
+        result = recommended_trips[available_columns].to_dict(orient="records")
         # ✅ Return success response
         return jsonify({
             "status": "success",
             "message": "Recommendations generated successfully",
-            "recommendations": recommended_trips[available_columns]
+            "recommendations": result
         }), 200
     except ValueError as ve:
         # 🔶 Known / validation errors
