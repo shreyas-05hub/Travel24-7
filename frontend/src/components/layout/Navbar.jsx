@@ -1,11 +1,21 @@
-import React, { use, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Button, Avatar } from "antd";
 import useTravelCost from "./context/TravelContext";
 import { toast } from "react-toastify";
 import "./navlink.css";
+import AOS from "aos";
 
 const Navbar = () => {
+  useEffect(() => {
+          AOS.init({
+            // Global settings for AOS
+            duration: 1000, // values from 0 to 3000, with step 50ms
+            once: true,     // whether animation should happen only once - while scrolling down
+          });
+          AOS.refresh(); // Recalculate positions of elements
+        }, []);
+
   const [isToggle, setToggle] = useState(true);
   const updatedToggle = () => {
     setToggle(!isToggle);
@@ -25,7 +35,7 @@ const Navbar = () => {
     }
   };
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg bg-light" data-aos="fade-down">
       <div className="container-fluid">
         {/* Bootstrap brand/logo class */}
         <NavLink to="/" className="navbar-brand fs-4 text-primary">

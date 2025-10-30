@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./homeslider.css";
+import AOS from "aos";
 
 const HomeSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -22,12 +23,23 @@ const HomeSlider = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+  
+  useEffect(() => {
+            AOS.init({
+              // Global settings for AOS
+              duration: 1000, // values from 0 to 3000, with step 50ms
+              once: true,     // whether animation should happen only once - while scrolling down
+            });
+            AOS.refresh(); // Recalculate positions of elements
+          }, []);
+
   return (
     <>
       <div
         id="carouselExampleAutoplaying"
         className="carousel slide "
         data-bs-ride="carousel"
+        data-aos="fade-up"
       >
         <div className="carousel-inner">
           <div className={`carousel-item ${activeIndex == 0 ? "active" : ""}`}>

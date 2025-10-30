@@ -1,9 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Marquee from "react-fast-marquee";
+import AOS from "aos";
 
 const HomeAI = () => {
+  useEffect(() => {
+              AOS.init({
+                // Global settings for AOS
+                duration: 1000, // values from 0 to 3000, with step 50ms
+                once: true,     // whether animation should happen only once - while scrolling down
+              });
+              AOS.refresh(); // Recalculate positions of elements
+            }, []);
   return (
-    <div className="m-0 py-5">
+    <div className="m-0 py-5" data-aos="fade-up">
       <h1 className="text-center py-5">Recomendations</h1>
       <Marquee>
         <div className="mx-5">

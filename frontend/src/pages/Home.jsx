@@ -5,6 +5,7 @@ import HomeAI from "../components/layout/ui/home/HomeAI";
 import HomeIndicators from "../components/layout/ui/home/HomeIndicators";
 import HomeSearchWidget from "../components/layout/ui/home/HomeSearchWidget";
 
+
 const Home = () => {
   return (
     <>
