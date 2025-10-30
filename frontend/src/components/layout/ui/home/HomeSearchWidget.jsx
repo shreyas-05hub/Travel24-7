@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import "./homesearch.css"
+import AOS from "aos";
+
 
 const HomeSearchWidget = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,12 +21,24 @@ const HomeSearchWidget = () => {
     "Visakhapatnam",
   ];
 
+  const handleSelect = (state) => {
+    setSearchTerm(state);
+  };
+
   const states = statesList.filter((state) => {
-    return state.toLowerCase().includes(searchTerm.toLowerCase());
+    return state.toLowerCase().includes(searchTerm.trim().toLowerCase());
   });
+  useEffect(() => {
+                AOS.init({
+                  // Global settings for AOS
+                  duration: 1000, // values from 0 to 3000, with step 50ms
+                  once: true,     // whether animation should happen only once - while scrolling down
+                });
+                AOS.refresh(); // Recalculate positions of elements
+              }, []);
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid" data-aos="fade-up">
         <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center ai">
             <h1 className="text-center">Destination Search </h1>
@@ -43,12 +56,23 @@ const HomeSearchWidget = () => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 {/* Displaying top 10 famous states in ap & telangana */}
-                {searchTerm == "" ? (
+                {searchTerm.trim() === "" ? (
                   ""
                 ) : (
                   <div className="card my-3 p-3 w-50 mx-auto text-center">
                     {states.map((ele, index) => (
-                      <p key={index}>{ele}</p>
+                      <p
+                        key={index}
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => handleSelect(ele)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") handleSelect(ele);
+                        }}
+                        style={{ cursor: "pointer", margin: "0.25rem 0" }}
+                      >
+                        {ele}
+                      </p>
                     ))}
                   </div>
                 )}
@@ -69,3 +93,4 @@ const HomeSearchWidget = () => {
 };
 
 export default HomeSearchWidget;
+

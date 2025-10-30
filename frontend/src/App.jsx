@@ -26,6 +26,7 @@ let PackageDetails = React.lazy(() =>
 let Favourites = React.lazy(() => import("./pages/Favourites"));
 
 const App = () => {
+  
   return (
     <>
       <Navbar />
