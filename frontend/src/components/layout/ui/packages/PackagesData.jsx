@@ -61,6 +61,17 @@ const PackagesData = () => {
     const result = await response.json();
     console.log("Response from backend:", result);
 
+    //  Merge recommendations into enrichedPackage
+      const finalPackage = {
+  ...enrichedPackage,
+  recommendations: Array.isArray(result.data?.recommendations)
+    ? result.data.recommendations
+    : [],
+};
+
+      setPackage(finalPackage)
+      localStorage.setItem("lastPackage", JSON.stringify(finalPackage));
+
     // You can handle response here (e.g., show recommendations)
     alert(`Recommendations received for ${destination}!`);
   } catch (error) {

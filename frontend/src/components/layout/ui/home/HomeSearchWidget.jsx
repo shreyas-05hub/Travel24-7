@@ -1,33 +1,53 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
+import packageData from "../../data/packageData";
+import { useHomeSearchData } from "./HomeSearchContext";
+import { useNavigate } from "react-router-dom";
+
 
 
 const HomeSearchWidget = () => {
+  const {setSearch}=useHomeSearchData()
   const [searchTerm, setSearchTerm] = useState("");
-  let statesList = [
-    "Ahmedabad",
-    "Bengaluru",
-    "Chennai",
-    "Delhi",
-    "Goa",
-    "Hyderabad",
-    "Jaipur",
-    "Kolkata",
-    "Lucknow",
-    "Mumbai",
-    "Pune",
-    "Surat",
-    "Visakhapatnam",
-  ];
+  const [searchType,setSearchType]=useState("")
+  const [citySelected, setCitySelected] = useState(false);
+  const navigate = useNavigate();
+  let citiesList = ['Munnar', 'Mysuru', 'Shimla', 'Rann of Kutch', 'Andaman',
+       'Auli', 'Kochi', 'Ooty', 'Alleppey', 'Varanasi', 'Pondicherry',
+       'Darjeeling', 'Goa', 'Chennai', 'Leh-Ladakh', 'Bengaluru',
+       'Rishikesh', 'Kodaikanal', 'Jaipur', 'Mumbai', 'Coorg', 'Agra',
+       'Delhi', 'Jaisalmer'].sort()
 
-  const handleSelect = (state) => {
-    setSearchTerm(state);
-  };
+  console.log(searchTerm, typeof searchTerm)
 
-  const states = statesList.filter((state) => {
-    return state.toLowerCase().includes(searchTerm.trim().toLowerCase());
+  let destinationTypeList=packageData[searchTerm] || {}
+  console.log(destinationTypeList)
+
+  const {destinationTypes=[]} = destinationTypeList
+  console.log(destinationTypes)
+
+  const handleSelect = (city) => {
+  setSearchTerm(city);
+  setCitySelected(true); // ✅ hide suggestions
+};
+
+  const cities = citiesList.filter((city) => {
+    return city.toLowerCase().includes(searchTerm.trim().toLowerCase());
   });
+
+  useEffect(() => {
+  if (searchTerm && searchType) {
+    const searchTerms = {
+      city: searchTerm,
+      type: searchType
+    };
+    setSearch(searchTerms);
+    localStorage.setItem("lastHomeSearch", JSON.stringify(searchTerms));
+    navigate("/favourites"); // ✅ navigate when both are selected
+  }
+}, [searchTerm, searchType]);
+
   useEffect(() => {
                 AOS.init({
                   // Global settings for AOS
@@ -41,7 +61,7 @@ const HomeSearchWidget = () => {
       <div className="container-fluid" data-aos="fade-up">
         <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center ai">
-            <h1 className="text-center">Destination Search </h1>
+            <h1 className="text-center px-5 my-4">Know Your Favourite Destination & Type </h1>
             <div className="px-5 py-2">
               <div>
                 <label htmlFor="travelPlace" className="form-label fs-5">
@@ -53,15 +73,17 @@ const HomeSearchWidget = () => {
                   type="text"
                   className="form-control"
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                    setCitySelected(false);
+                  }}
                 />
-                {/* Displaying top 10 famous states in ap & telangana */}
-                {searchTerm.trim() === "" ? (
-                  ""
-                ) : (
+                {/* Displaying avaliable cities*/}
+                {searchTerm.trim() !== "" && !citySelected && (
                   <div className="card my-3 p-3 w-50 mx-auto text-center">
-                    {states.map((ele, index) => (
+                    {cities.map((ele, index) => (
                       <p
+                        className="Scity"
                         key={index}
                         role="button"
                         tabIndex={0}
@@ -78,6 +100,16 @@ const HomeSearchWidget = () => {
                 )}
               </div>
             </div>
+            <div className="px-5 py-2">
+                  <label htmlFor="travelPlace" className="form-label fs-5">
+                  Type (please Select the destination type.)
+                </label>
+                <select className="form-control" value={searchType} onChange={(e)=>setSearchType(e.target.value)}>
+                  {destinationTypes.map((ele,i)=>(
+                    <option key={i} value={ele.type}>{ele.type}</option>
+                  ))}
+                </select>
+              </div>
           </div>
           <div className="col-sm-12 col-md-6 col-lg-6 px-0 order-1 order-lg-2">
             <img

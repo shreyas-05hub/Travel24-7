@@ -12,6 +12,7 @@ import DestinationProvider from "./components/layout/ui/destinations/Destination
 import PackageProvider from "./components/layout/ui/packages/PackageProvider";
 // import PackageDetails from './components/layout/ui/packages/PackageDetails';
 import FromcityProvider from "./components/layout/ui/destinations/FromcityContext";
+import HomeSearchProvider from "./components/layout/ui/home/HomeSearchContext";
 
 import "./app.css";
 
@@ -30,24 +31,26 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <FromcityProvider>
-      <PackageProvider>
-        <DestinationProvider>
-          <Suspense fallback={<p className="loader"></p>}>
-            <Routes>
-              <Route path="/" element={<Navigate to={"/home"} />} />
-              <Route path={"/home"} element={<Home />} />
-              <Route path={"/packages"} element={<Packages />} />
-              <Route path="/:packageID" element={<PackageDetails />} />
-              <Route path={"/recommendation"} element={<Recommendations />} />
-              <Route path={"/Destinations"} element={<Destinations />} />
-              <Route path={"/favourites"} element={<Favourites />} />
-              <Route path={"/login"} element={<Login />} />
-            </Routes>
-          </Suspense>
-        </DestinationProvider>
-      </PackageProvider>
-      </FromcityProvider>
+      <HomeSearchProvider>
+        <FromcityProvider>
+          <PackageProvider>
+            <DestinationProvider>
+              <Suspense fallback={<p className="loader"></p>}>
+                <Routes>
+                  <Route path="/" element={<Navigate to={"/home"} />} />
+                  <Route path={"/home"} element={<Home />} />
+                  <Route path={"/packages"} element={<Packages />} />
+                  <Route path="/:packageID" element={<PackageDetails />} />
+                  <Route path={"/recommendation"} element={<Recommendations />} />
+                  <Route path={"/Destinations"} element={<Destinations />} />
+                  <Route path={"/favourites"} element={<Favourites />} />
+                  <Route path={"/login"} element={<Login />} />
+                </Routes>
+              </Suspense>
+            </DestinationProvider>
+          </PackageProvider>
+          </FromcityProvider>
+      </HomeSearchProvider>
       <Footer />
     </>
   );
