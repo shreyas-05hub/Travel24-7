@@ -7,27 +7,47 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const HomeSearchWidget = () => {
-  const {setSearch}=useHomeSearchData()
+  const { setSearch } = useHomeSearchData();
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchType,setSearchType]=useState("")
+  const [searchType, setSearchType] = useState("");
   const [citySelected, setCitySelected] = useState(false);
   const typeDropdownRef = useRef(null);
   const navigate = useNavigate();
-  let citiesList = ['Munnar', 'Mysuru', 'Shimla', 'Rann of Kutch', 'Andaman',
-       'Auli', 'Kochi', 'Ooty', 'Alleppey', 'Varanasi', 'Pondicherry',
-       'Darjeeling', 'Goa', 'Chennai', 'Leh-Ladakh', 'Bengaluru',
-       'Rishikesh', 'Kodaikanal', 'Jaipur', 'Mumbai', 'Coorg', 'Agra',
-       'Delhi', 'Jaisalmer'].sort()
+  let citiesList = [
+    "Munnar",
+    "Mysuru",
+    "Shimla",
+    "Rann of Kutch",
+    "Andaman",
+    "Auli",
+    "Kochi",
+    "Ooty",
+    "Alleppey",
+    "Varanasi",
+    "Pondicherry",
+    "Darjeeling",
+    "Goa",
+    "Chennai",
+    "Leh-Ladakh",
+    "Bengaluru",
+    "Rishikesh",
+    "Kodaikanal",
+    "Jaipur",
+    "Mumbai",
+    "Coorg",
+    "Agra",
+    "Delhi",
+    "Jaisalmer",
+  ].sort();
 
-  console.log(searchTerm, typeof searchTerm)
+  console.log(searchTerm, typeof searchTerm);
 
-  let destinationTypeList=packageData[searchTerm] || {}
-  console.log(destinationTypeList)
+  let destinationTypeList = packageData[searchTerm] || {};
+  console.log(destinationTypeList);
 
-  const {destinationTypes=[]} = destinationTypeList
-  console.log(destinationTypes)
+  const { destinationTypes = [] } = destinationTypeList;
+  console.log(destinationTypes);
 
   const handleSelect = (city) => {
     setSearchTerm(city);
@@ -36,9 +56,9 @@ const HomeSearchWidget = () => {
       typeDropdownRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 300);
     toast.success(`City selected: ${city}`, {
-    position: "top-center",
-    autoClose: 2000,
-  });
+      position: "top-center",
+      autoClose: 2000,
+    });
   };
 
   const cities = citiesList.filter((city) => {
@@ -46,32 +66,34 @@ const HomeSearchWidget = () => {
   });
 
   useEffect(() => {
-  if (searchTerm && searchType) {
-    const searchTerms = {
-      city: searchTerm,
-      type: searchType
-    };
-    setSearch(searchTerms);
-    localStorage.setItem("lastHomeSearch", JSON.stringify(searchTerms));
-    navigate("/favourites"); // ✅ navigate when both are selected
-  }
-}, [searchTerm, searchType]);
+    if (searchTerm && searchType) {
+      const searchTerms = {
+        city: searchTerm,
+        type: searchType,
+      };
+      setSearch(searchTerms);
+      localStorage.setItem("lastHomeSearch", JSON.stringify(searchTerms));
+      navigate("/favourites"); // ✅ navigate when both are selected
+    }
+  }, [searchTerm, searchType]);
 
   useEffect(() => {
-                AOS.init({
-                  // Global settings for AOS
-                  duration: 1000, // values from 0 to 3000, with step 50ms
-                  once: true,     // whether animation should happen only once - while scrolling down
-                });
-                AOS.refresh(); // Recalculate positions of elements
-              }, []);
-  
+    AOS.init({
+      // Global settings for AOS
+      duration: 1000, // values from 0 to 3000, with step 50ms
+      once: true, // whether animation should happen only once - while scrolling down
+    });
+    AOS.refresh(); // Recalculate positions of elements
+  }, []);
+
   return (
     <>
       <div className="container-fluid" data-aos="fade-up">
         <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center ai">
-            <h1 className="text-center px-5 my-4">Know Your Favourite Destination & Type </h1>
+            <h1 className="text-center px-5 my-4">
+              Know Your Favourite Destination & Type{" "}
+            </h1>
             <div className="px-5 py-2">
               <div>
                 <label htmlFor="travelPlace" className="form-label fs-5">
@@ -112,16 +134,23 @@ const HomeSearchWidget = () => {
               </div>
             </div>
             <div className="px-5 py-2">
-                  <label htmlFor="travelPlace" className="form-label fs-5">
-                  Type (please Select the destination type.)
-                </label>
-                <select className="form-control" ref={typeDropdownRef} value={searchType} onChange={(e)=>setSearchType(e.target.value)}>
-                  <option value="">-- Select a type --</option>
-                  {destinationTypes.map((ele,i)=>(
-                    <option key={i} value={ele.type}>{ele.type}</option>
-                  ))}
-                </select>
-              </div>
+              <label htmlFor="travelPlace" className="form-label fs-5">
+                Type (please Select the destination type.)
+              </label>
+              <select
+                className="form-control"
+                ref={typeDropdownRef}
+                value={searchType}
+                onChange={(e) => setSearchType(e.target.value)}
+              >
+                <option value="">-- Select a type --</option>
+                {destinationTypes.map((ele, i) => (
+                  <option key={i} value={ele.type}>
+                    {ele.type}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <div className="col-sm-12 col-md-6 col-lg-6 px-0 order-1 order-lg-2">
             <img
@@ -137,4 +166,3 @@ const HomeSearchWidget = () => {
 };
 
 export default HomeSearchWidget;
-

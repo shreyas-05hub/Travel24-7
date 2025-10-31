@@ -4,32 +4,32 @@ let packageData = {
       { type: "Historical" },
       { type: "Cultural" },
       { type: "City" },
-      { type: "Adventure" }
-    ]
+      { type: "Adventure" },
+    ],
   },
   Alleppey: {
     destinationTypes: [
       { type: "Coastal" },
       { type: "Cultural" },
       { type: "Backwater" },
-      { type: "Beach" }
-    ]
+      { type: "Beach" },
+    ],
   },
   Andaman: {
     destinationTypes: [
       { type: "Coastal" },
       { type: "Island" },
       { type: "Beach" },
-      { type: "Adventure" }
-    ]
+      { type: "Adventure" },
+    ],
   },
   Auli: {
     destinationTypes: [
       { type: "Hill Station" },
       { type: "Mountain" },
       { type: "Adventure" },
-      { type: "Cultural" }
-    ]
+      { type: "Cultural" },
+    ],
   },
   Bengaluru: {
     destinationTypes: [
@@ -38,8 +38,8 @@ let packageData = {
       { type: "City" },
       { type: "Hill Station" },
       { type: "Adventure" },
-      { type: "Coastal" }
-    ]
+      { type: "Coastal" },
+    ],
   },
   Chennai: {
     destinationTypes: [
@@ -48,24 +48,24 @@ let packageData = {
       { type: "City" },
       { type: "Backwater" },
       { type: "Beach" },
-      { type: "Historical" }
-    ]
+      { type: "Historical" },
+    ],
   },
   Coorg: {
     destinationTypes: [
       { type: "Cultural" },
       { type: "Hill Station" },
       { type: "Adventure" },
-      { type: "Backwater" }
-    ]
+      { type: "Backwater" },
+    ],
   },
   Darjeeling: {
     destinationTypes: [
       { type: "Hill Station" },
       { type: "Mountain" },
       { type: "Cultural" },
-      { type: "Historical" }
-    ]
+      { type: "Historical" },
+    ],
   },
   Delhi: {
     destinationTypes: [
@@ -73,8 +73,8 @@ let packageData = {
       { type: "Cultural" },
       { type: "City" },
       { type: "Adventure" },
-      { type: "Mountain" }
-    ]
+      { type: "Mountain" },
+    ],
   },
   Goa: {
     destinationTypes: [
@@ -83,8 +83,8 @@ let packageData = {
       { type: "Adventure" },
       { type: "City" },
       { type: "Historical" },
-      { type: "Cultural" }
-    ]
+      { type: "Cultural" },
+    ],
   },
   Jaipur: {
     destinationTypes: [
@@ -93,16 +93,16 @@ let packageData = {
       { type: "Desert" },
       { type: "Adventure" },
       { type: "City" },
-      { type: "Mountain" }
-    ]
+      { type: "Mountain" },
+    ],
   },
   Jaisalmer: {
     destinationTypes: [
       { type: "Cultural" },
       { type: "Historical" },
       { type: "Adventure" },
-      { type: "Desert" }
-    ]
+      { type: "Desert" },
+    ],
   },
   Kochi: {
     destinationTypes: [
@@ -111,24 +111,24 @@ let packageData = {
       { type: "Cultural" },
       { type: "Historical" },
       { type: "Backwater" },
-      { type: "City" }
-    ]
+      { type: "City" },
+    ],
   },
   Kodaikanal: {
     destinationTypes: [
       { type: "Hill Station" },
       { type: "Mountain" },
       { type: "Adventure" },
-      { type: "Cultural" }
-    ]
+      { type: "Cultural" },
+    ],
   },
   "Leh-Ladakh": {
     destinationTypes: [
       { type: "Hill Station" },
       { type: "Mountain" },
       { type: "Adventure" },
-      { type: "Cultural" }
-    ]
+      { type: "Cultural" },
+    ],
   },
   Mumbai: {
     destinationTypes: [
@@ -137,64 +137,64 @@ let packageData = {
       { type: "Adventure" },
       { type: "City" },
       { type: "Historical" },
-      { type: "Cultural" }
-    ]
+      { type: "Cultural" },
+    ],
   },
   Munnar: {
     destinationTypes: [
       { type: "Hill Station" },
       { type: "Mountain" },
       { type: "Adventure" },
-      { type: "Cultural" }
-    ]
+      { type: "Cultural" },
+    ],
   },
   Mysuru: {
     destinationTypes: [
       { type: "Cultural" },
       { type: "Historical" },
       { type: "Adventure" },
-      { type: "City" }
-    ]
+      { type: "City" },
+    ],
   },
   Ooty: {
     destinationTypes: [
       { type: "Hill Station" },
       { type: "Mountain" },
       { type: "Backwater" },
-      { type: "Cultural" }
-    ]
+      { type: "Cultural" },
+    ],
   },
   Pondicherry: {
     destinationTypes: [
       { type: "Coastal" },
       { type: "Cultural" },
       { type: "Beach" },
-      { type: "Historical" }
-    ]
+      { type: "Historical" },
+    ],
   },
   "Rann of Kutch": {
     destinationTypes: [
       { type: "Cultural" },
       { type: "Historical" },
       { type: "Adventure" },
-      { type: "Desert" }
-    ]
+      { type: "Desert" },
+    ],
   },
   Rishikesh: {
     destinationTypes: [
       { type: "Mountain" },
       { type: "Cultural" },
       { type: "Adventure" },
-      { type: "Backwater" }
-    ]
+      { type: "Backwater" },
+    ],
   },
   Shimla: {
     destinationTypes: [
       { type: "Hill Station" },
       { type: "Cultural" },
       { type: "Mountain" },
-      { type: "Adventure" }
-    ]
+      { type: "Adventure" },
+    ],
   },
   Varanasi: {
     destinationTypes: [
@@ -203,9 +203,9 @@ let packageData = {
       { type: "Adventure" },
       { type: "City" },
       { type: "Backwater" },
-      { type: "Religious" }
-    ]
-  }
+      { type: "Religious" },
+    ],
+  },
 };
 
 export default packageData;

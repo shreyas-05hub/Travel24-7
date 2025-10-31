@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useDestinationData } from "./DestinationContext";
 import AOS from "aos";
 
-
 const ResultGridList = () => {
   const { setDestination } = useDestinationData();
   const getDestination = (title = "Banglore") => {
@@ -167,16 +166,16 @@ const ResultGridList = () => {
   ];
 
   useEffect(() => {
-              AOS.init({
-                // Global settings for AOS
-                duration: 1000, // values from 0 to 3000, with step 50ms
-                once: true,     // whether animation should happen only once - while scrolling down
-              });
-              AOS.refresh(); // Recalculate positions of elements
-            }, []);
+    AOS.init({
+      // Global settings for AOS
+      duration: 1000, // values from 0 to 3000, with step 50ms
+      once: true, // whether animation should happen only once - while scrolling down
+    });
+    AOS.refresh(); // Recalculate positions of elements
+  }, []);
 
   return (
-    <div className="container-fluid my-4 text-center"  data-aos="zoom-in">
+    <div className="container-fluid my-4 text-center" data-aos="zoom-in">
       <button className="btn btn-success my-3" onClick={changeView}>
         {isListView ? "Switch to Grid View" : "Switch to List View"}
       </button>

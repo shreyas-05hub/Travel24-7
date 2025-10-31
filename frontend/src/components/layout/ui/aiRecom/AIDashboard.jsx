@@ -1,189 +1,3 @@
-// import React, { useState } from "react";
-// import "./aidashboard.css";
-
-// let destinations = [
-//   "Munnar", "Mysuru", "Shimla", "Rann of Kutch", "Andaman",
-//   "Auli", "Kochi", "Ooty", "Alleppey", "Varanasi", "Pondicherry",
-//   "Darjeeling", "Goa", "Chennai", "Leh-Ladakh", "Bengaluru",
-//   "Rishikesh", "Kodaikanal", "Jaipur", "Mumbai", "Coorg", "Agra",
-//   "Delhi", "Jaisalmer"
-// ];
-
-// let cities = [
-//   "Ahmedabad", "Bengaluru", "Chennai", "Delhi", "Goa",
-//   "Hyderabad", "Jaipur", "Kolkata", "Lucknow", "Mumbai",
-//   "Pune", "Surat", "Visakhapatnam"
-// ];
-
-// let TravelType = [
-//   "Mountain", "Historical", "Island", "Adventure", "Coastal",
-//   "City", "Beach", "Backwater", "Cultural", "Hill Station", "Desert"
-// ];
-
-// const AIDashboard = () => {
-//   const [rangeValue, setRangeValue] = useState(3000);
-//   const [destination, setDestination] = useState("");
-//   const [departureCity, setDepartureCity] = useState("");
-//   const [travelType, setTravelType] = useState("");
-//   const [duration, setDuration] = useState(1);
-//   const [formData, setFormData] = useState(null);
-
-//   const handleGenerate = () => {
-//     const data = {
-//       departureCity,
-//       destination,
-//       travelType,
-//       budgetRange: rangeValue,
-//       duration
-//     };
-//     setFormData(data);
-//     console.log("Collected Data:", data);
-//   };
-
-//   const handleReset = () => {
-//     setDepartureCity("");
-//     setDestination("");
-//     setTravelType("");
-//     setRangeValue(3000);
-//     setDuration(1);
-//     setFormData(null);
-//   };
-
-//   // helpers for +/– controls
-//   const increaseDuration = () => setDuration((prev) => prev + 1);
-//   const decreaseDuration = () => setDuration((prev) => (prev > 1 ? prev - 1 : 1));
-//   const increaseBudget = () => setRangeValue((prev) => prev + 1000);
-//   const decreaseBudget = () => setRangeValue((prev) => (prev > 1000 ? prev - 1000 : 1000));
-
-//   return (
-//     <>
-//       <div className="form w-50 mx-auto p-3 my-4 bg-light rounded-4 shadow-sm">
-//         <div className="my-3 px-sm-4">
-
-//           {/* Departure City */}
-//           <label htmlFor="departureCity" className="my-3 fw-bold fs-5">
-//             ✈️ Select your Departure City:
-//           </label>
-//           <select
-//             id="departureCity"
-//             className="form-select"
-//             value={departureCity}
-//             onChange={(e) => setDepartureCity(e.target.value)}
-//           >
-//             <option value="">-- Select --</option>
-//             {cities.sort().map((ele, i) => (
-//               <option value={ele} key={i}>{ele}</option>
-//             ))}
-//           </select>
-
-//           {/* Destination */}
-//           <label htmlFor="destination" className="my-3 fw-bold fs-5">
-//             📍 Select your Destination:
-//           </label>
-//           <select
-//             id="destination"
-//             className="form-select"
-//             value={destination}
-//             onChange={(e) => setDestination(e.target.value)}
-//           >
-//             <option value="">-- Select --</option>
-//             {destinations.sort().map((ele, i) => (
-//               <option value={ele} key={i}>{ele}</option>
-//             ))}
-//           </select>
-
-//           {/* Destination Type */}
-//           <label htmlFor="travelType" className="my-3 fw-bold fs-5">
-//             📸 Select Destination Type:
-//           </label>
-//           <select
-//             id="travelType"
-//             className="form-select"
-//             value={travelType}
-//             onChange={(e) => setTravelType(e.target.value)}
-//           >
-//             <option value="">-- Select --</option>
-//             {TravelType.map((ele, i) => (
-//               <option value={ele} key={i}>{ele}</option>
-//             ))}
-//           </select>
-
-//           {/* Duration with +/- */}
-//           <label htmlFor="duration" className="my-3 fw-bold fs-5">
-//             ⏱️ Trip Duration (Days):
-//           </label>
-//           <div className="input-group">
-//             <button
-//               className="btn btn-outline-secondary"
-//               type="button"
-//               onClick={decreaseDuration}
-//             >–</button>
-//             <input
-//               type="number"
-//               id="duration"
-//               min={1}
-//               className="form-control text-center"
-//               value={duration}
-//               onChange={(e) => setDuration(Number(e.target.value))}
-//             />
-//             <button
-//               className="btn btn-outline-secondary"
-//               type="button"
-//               onClick={increaseDuration}
-//             >+</button>
-//           </div>
-
-//           {/* Budget with +/- */}
-//           <label htmlFor="budget" className="my-3 fw-bold fs-5">
-//             💰 Budget:
-//           </label>
-//           <div className="input-group">
-//             <button
-//               className="btn btn-outline-secondary"
-//               type="button"
-//               onClick={decreaseBudget}
-//             >–</button>
-//             <input
-//               type="number"
-//               id="budget"
-//               min={1000}
-//               className="form-control text-center"
-//               value={rangeValue}
-//               onChange={(e) => setRangeValue(Number(e.target.value))}
-//             />
-//             <button
-//               className="btn btn-outline-secondary"
-//               type="button"
-//               onClick={increaseBudget}
-//             >+</button>
-//           </div>
-
-//           {/* Buttons */}
-//           <div className="text-center mt-4 py-2">
-//             <button
-//               className="reset btn btn-success px-4 py-2 mx-2"
-//               type="button"
-//               onClick={handleReset}
-//             >
-//               Reset
-//             </button>
-
-//             <button
-//               type="button"
-//               className="btn btn-warning px-4 py-2 aiGnt mx-2"
-//               onClick={handleGenerate}
-//             >
-//               <i className="bi bi-magic"></i> AI Generate
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default AIDashboard;
-
 import React, { useState } from "react";
 import "./aidashboard.css";
 
@@ -191,22 +5,60 @@ import "./aidashboard.css";
 // 🏙️ Static Data Lists
 // -----------------------------------------
 let destinations = [
-  "Munnar", "Mysuru", "Shimla", "Rann of Kutch", "Andaman",
-  "Auli", "Kochi", "Ooty", "Alleppey", "Varanasi", "Pondicherry",
-  "Darjeeling", "Goa", "Chennai", "Leh-Ladakh", "Bengaluru",
-  "Rishikesh", "Kodaikanal", "Jaipur", "Mumbai", "Coorg", "Agra",
-  "Delhi", "Jaisalmer"
+  "Munnar",
+  "Mysuru",
+  "Shimla",
+  "Rann of Kutch",
+  "Andaman",
+  "Auli",
+  "Kochi",
+  "Ooty",
+  "Alleppey",
+  "Varanasi",
+  "Pondicherry",
+  "Darjeeling",
+  "Goa",
+  "Chennai",
+  "Leh-Ladakh",
+  "Bengaluru",
+  "Rishikesh",
+  "Kodaikanal",
+  "Jaipur",
+  "Mumbai",
+  "Coorg",
+  "Agra",
+  "Delhi",
+  "Jaisalmer",
 ];
 
 let cities = [
-  "Ahmedabad", "Bengaluru", "Chennai", "Delhi", "Goa",
-  "Hyderabad", "Jaipur", "Kolkata", "Lucknow", "Mumbai",
-  "Pune", "Surat", "Visakhapatnam"
+  "Ahmedabad",
+  "Bengaluru",
+  "Chennai",
+  "Delhi",
+  "Goa",
+  "Hyderabad",
+  "Jaipur",
+  "Kolkata",
+  "Lucknow",
+  "Mumbai",
+  "Pune",
+  "Surat",
+  "Visakhapatnam",
 ];
 
 let TravelType = [
-  "Mountain", "Historical", "Island", "Adventure", "Coastal",
-  "City", "Beach", "Backwater", "Cultural", "Hill Station", "Desert"
+  "Mountain",
+  "Historical",
+  "Island",
+  "Adventure",
+  "Coastal",
+  "City",
+  "Beach",
+  "Backwater",
+  "Cultural",
+  "Hill Station",
+  "Desert",
 ];
 
 // -----------------------------------------
@@ -231,7 +83,7 @@ const AIDashboard = () => {
       destination: destination,
       travelType: travelType,
       duration: duration,
-      budgetRange: rangeValue
+      budgetRange: rangeValue,
     };
 
     console.log("📤 Sending Data to Flask:", data);
@@ -255,7 +107,9 @@ const AIDashboard = () => {
       }
     } catch (error) {
       console.error("⚠️ Request Failed:", error);
-      alert("Error connecting to Flask server. Make sure it's running on port 5000.");
+      alert(
+        "Error connecting to Flask server. Make sure it's running on port 5000."
+      );
     } finally {
       setLoading(false);
     }
@@ -277,9 +131,11 @@ const AIDashboard = () => {
   // ➕/➖ Helper Controls
   // -----------------------------------------
   const increaseDuration = () => setDuration((prev) => prev + 1);
-  const decreaseDuration = () => setDuration((prev) => (prev > 1 ? prev - 1 : 1));
+  const decreaseDuration = () =>
+    setDuration((prev) => (prev > 1 ? prev - 1 : 1));
   const increaseBudget = () => setRangeValue((prev) => prev + 1000);
-  const decreaseBudget = () => setRangeValue((prev) => (prev > 1000 ? prev - 1000 : 1000));
+  const decreaseBudget = () =>
+    setRangeValue((prev) => (prev > 1000 ? prev - 1000 : 1000));
 
   // -----------------------------------------
   // 🖥️ UI Render
@@ -289,7 +145,6 @@ const AIDashboard = () => {
       {/* 🌍 Form Section */}
       <div className="form w-50 mx-auto p-3 my-4 bg-light rounded-4 shadow-sm">
         <div className="my-3 px-sm-4">
-          
           {/* Departure City */}
           <label htmlFor="departureCity" className="my-3 fw-bold fs-5">
             ✈️ Select your Departure City:
@@ -302,7 +157,9 @@ const AIDashboard = () => {
           >
             <option value="">-- Select --</option>
             {cities.sort().map((ele, i) => (
-              <option value={ele} key={i}>{ele}</option>
+              <option value={ele} key={i}>
+                {ele}
+              </option>
             ))}
           </select>
 
@@ -318,7 +175,9 @@ const AIDashboard = () => {
           >
             <option value="">-- Select --</option>
             {destinations.sort().map((ele, i) => (
-              <option value={ele} key={i}>{ele}</option>
+              <option value={ele} key={i}>
+                {ele}
+              </option>
             ))}
           </select>
 
@@ -334,7 +193,9 @@ const AIDashboard = () => {
           >
             <option value="">-- Select --</option>
             {TravelType.map((ele, i) => (
-              <option value={ele} key={i}>{ele}</option>
+              <option value={ele} key={i}>
+                {ele}
+              </option>
             ))}
           </select>
 
@@ -347,7 +208,9 @@ const AIDashboard = () => {
               className="btn btn-outline-secondary"
               type="button"
               onClick={decreaseDuration}
-            >–</button>
+            >
+              –
+            </button>
             <input
               type="number"
               id="duration"
@@ -360,7 +223,9 @@ const AIDashboard = () => {
               className="btn btn-outline-secondary"
               type="button"
               onClick={increaseDuration}
-            >+</button>
+            >
+              +
+            </button>
           </div>
 
           {/* Budget */}
@@ -372,7 +237,9 @@ const AIDashboard = () => {
               className="btn btn-outline-secondary"
               type="button"
               onClick={decreaseBudget}
-            >–</button>
+            >
+              –
+            </button>
             <input
               type="number"
               id="budget"
@@ -385,7 +252,9 @@ const AIDashboard = () => {
               className="btn btn-outline-secondary"
               type="button"
               onClick={increaseBudget}
-            >+</button>
+            >
+              +
+            </button>
           </div>
 
           {/* Buttons */}

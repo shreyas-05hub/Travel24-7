@@ -27,7 +27,6 @@ let PackageDetails = React.lazy(() =>
 let Favourites = React.lazy(() => import("./pages/Favourites"));
 
 const App = () => {
-  
   return (
     <>
       <Navbar />
@@ -41,7 +40,10 @@ const App = () => {
                   <Route path={"/home"} element={<Home />} />
                   <Route path={"/packages"} element={<Packages />} />
                   <Route path="/:packageID" element={<PackageDetails />} />
-                  <Route path={"/recommendation"} element={<Recommendations />} />
+                  <Route
+                    path={"/recommendation"}
+                    element={<Recommendations />}
+                  />
                   <Route path={"/Destinations"} element={<Destinations />} />
                   <Route path={"/favourites"} element={<Favourites />} />
                   <Route path={"/login"} element={<Login />} />
@@ -49,7 +51,7 @@ const App = () => {
               </Suspense>
             </DestinationProvider>
           </PackageProvider>
-          </FromcityProvider>
+        </FromcityProvider>
       </HomeSearchProvider>
       <Footer />
     </>

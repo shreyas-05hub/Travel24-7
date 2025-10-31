@@ -1,7 +1,8 @@
-a{
+a {
     text-decoration: none;
     color: black;
 }
-a:active{
+
+a:active {
     display: none;
 }

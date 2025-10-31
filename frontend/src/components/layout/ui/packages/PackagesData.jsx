@@ -19,66 +19,66 @@ const PackagesData = () => {
   const { destinationTypes } = data;
   console.log(destinationTypes);
   const { setPackage } = usePackageData();
-  console.log("sp",setPackage)
-  
+  console.log("sp", setPackage);
+
   const getPackage = async (ele) => {
-  const enrichedPackage = {
-    ...ele,
-    fromCity: Fromcity,
-    toCity: destination,
-    budget: rangeValue,
-    duration: duration,
-  };
+    const enrichedPackage = {
+      ...ele,
+      fromCity: Fromcity,
+      toCity: destination,
+      budget: rangeValue,
+      duration: duration,
+    };
 
-  console.log("Sending enrichedPackage:", enrichedPackage);
+    console.log("Sending enrichedPackage:", enrichedPackage);
 
-  // Save locally (still useful)
-  setPackage(enrichedPackage);
-  localStorage.setItem("lastPackage", JSON.stringify(enrichedPackage));
+    // Save locally (still useful)
+    setPackage(enrichedPackage);
+    localStorage.setItem("lastPackage", JSON.stringify(enrichedPackage));
 
-  // ✅ Extract only required fields for the backend
-  const payload = {
-    fromCity: enrichedPackage.fromCity,
-    toCity: enrichedPackage.toCity,
-    type: enrichedPackage.type,
-    duration: enrichedPackage.duration,
-    budget: enrichedPackage.budget,
-  };
+    // ✅ Extract only required fields for the backend
+    const payload = {
+      fromCity: enrichedPackage.fromCity,
+      toCity: enrichedPackage.toCity,
+      type: enrichedPackage.type,
+      duration: enrichedPackage.duration,
+      budget: enrichedPackage.budget,
+    };
 
-  try {
-    const response = await fetch("http://127.0.0.1:5000/api/recommend", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+    try {
+      const response = await fetch("http://127.0.0.1:5000/api/recommend", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
-    const result = await response.json();
-    console.log("Response from backend:", result);
+      const result = await response.json();
+      console.log("Response from backend:", result);
 
-    //  Merge recommendations into enrichedPackage
+      //  Merge recommendations into enrichedPackage
       const finalPackage = {
-  ...enrichedPackage,
-  recommendations: Array.isArray(result.data?.recommendations)
-    ? result.data.recommendations
-    : [],
-};
+        ...enrichedPackage,
+        recommendations: Array.isArray(result.data?.recommendations)
+          ? result.data.recommendations
+          : [],
+      };
 
-      setPackage(finalPackage)
+      setPackage(finalPackage);
       localStorage.setItem("lastPackage", JSON.stringify(finalPackage));
 
-    // You can handle response here (e.g., show recommendations)
-    alert(`Recommendations received for ${destination}!`);
-  } catch (error) {
-    console.error("Error sending data:", error);
-    alert("Failed to send data to backend. Check console for details.");
-  }
-};
+      // You can handle response here (e.g., show recommendations)
+      alert(`Recommendations received for ${destination}!`);
+    } catch (error) {
+      console.error("Error sending data:", error);
+      alert("Failed to send data to backend. Check console for details.");
+    }
+  };
 
   const [feedback, setFeedback] = useState({});
 
@@ -189,7 +189,7 @@ const PackagesData = () => {
         </output>
         <div className="row">
           {destinationTypes.map((ele, i) => {
-            console.log(ele)
+            console.log(ele);
             const typeFeedback = feedback[ele.type] || {};
             const totalLikes =
               (typeFeedback.baseLikes || 0) + (typeFeedback.liked ? 1 : 0);
@@ -200,7 +200,14 @@ const PackagesData = () => {
             return (
               <div className="col-12 col-sm-12 col-md-6 col-lg-4 py-3" key={i}>
                 <div className="card">
-                  <img src={`./src/assets/assets1/${destination}_${ele.type.toLowerCase().replaceAll(" ","")}.jpg`} className="card-img-top" style={{height:"300px"}} alt="..." />
+                  <img
+                    src={`./src/assets/assets1/${destination}_${ele.type
+                      .toLowerCase()
+                      .replaceAll(" ", "")}.jpg`}
+                    className="card-img-top"
+                    style={{ height: "300px" }}
+                    alt="..."
+                  />
                   <div className="card-body">
                     <h5 className="card-title">{ele.type}</h5>
                     <p className="card-text">{ele.description}</p>

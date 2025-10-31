@@ -1,11 +1,13 @@
-.aiResults{
+.aiResults {
     background-color: whitesmoke;
 }
-.pckgCard{
+
+.pckgCard {
     background-color: white;
     transition: all .2s ease-in-out;
 }
-.pckgCard:hover{
+
+.pckgCard:hover {
     transform: scale(1.01);
     box-shadow: 3px 3px 3px lightgrey;
 }

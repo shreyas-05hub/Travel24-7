@@ -3,16 +3,16 @@ import "./homehero.css";
 import AOS from "aos";
 
 const HomeHero = ({ header, caption }) => {
-      useEffect(() => {
-        AOS.init({
-          // Global settings for AOS
-          duration: 1000, // values from 0 to 3000, with step 50ms
-          once: true,     // whether animation should happen only once - while scrolling down
-        });
-        AOS.refresh(); // Recalculate positions of elements
-      }, []);
+  useEffect(() => {
+    AOS.init({
+      // Global settings for AOS
+      duration: 1000, // values from 0 to 3000, with step 50ms
+      once: true, // whether animation should happen only once - while scrolling down
+    });
+    AOS.refresh(); // Recalculate positions of elements
+  }, []);
 
-      // ... rest of your component
+  // ... rest of your component
   return (
     <>
       <div className="container-fluid" data-aos="fade-up">

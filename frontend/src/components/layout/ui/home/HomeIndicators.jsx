@@ -30,20 +30,20 @@ const HomeIndicators = () => {
     return () => clearTimeout(timer);
   }, []);
   useEffect(() => {
-                AOS.init({
-                  // Global settings for AOS
-                  duration: 1000, // values from 0 to 3000, with step 50ms
-                  once: true,     // whether animation should happen only once - while scrolling down
-                });
-                AOS.refresh(); // Recalculate positions of elements
-              }, []);
+    AOS.init({
+      // Global settings for AOS
+      duration: 1000, // values from 0 to 3000, with step 50ms
+      once: true, // whether animation should happen only once - while scrolling down
+    });
+    AOS.refresh(); // Recalculate positions of elements
+  }, []);
   return (
     <>
       {/* Numbers Section */}
       <div
         className="container-fluid py-5"
         style={{ backgroundColor: "papayawhip" }}
-         data-aos="fade-down"
+        data-aos="fade-down"
       >
         <div className="container">
           <div className="row text-center">
