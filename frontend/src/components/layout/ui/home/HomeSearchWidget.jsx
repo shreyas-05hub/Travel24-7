@@ -73,6 +73,7 @@ const HomeSearchWidget = () => {
                   type="text"
                   className="form-control"
                   value={searchTerm}
+                  placeholder="select the destination city"
                   onChange={(e) => {
                     setSearchTerm(e.target.value);
                     setCitySelected(false);
@@ -105,6 +106,7 @@ const HomeSearchWidget = () => {
                   Type (please Select the destination type.)
                 </label>
                 <select className="form-control" value={searchType} onChange={(e)=>setSearchType(e.target.value)}>
+                  <option value="">-- Select a type --</option>
                   {destinationTypes.map((ele,i)=>(
                     <option key={i} value={ele.type}>{ele.type}</option>
                   ))}
