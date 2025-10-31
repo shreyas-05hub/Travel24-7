@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import packageData from "../../data/packageData";
 import { useHomeSearchData } from "./HomeSearchContext";
 import { useNavigate } from "react-router-dom";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const HomeSearchWidget = () => {
@@ -12,6 +13,7 @@ const HomeSearchWidget = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchType,setSearchType]=useState("")
   const [citySelected, setCitySelected] = useState(false);
+  const typeDropdownRef = useRef(null);
   const navigate = useNavigate();
   let citiesList = ['Munnar', 'Mysuru', 'Shimla', 'Rann of Kutch', 'Andaman',
        'Auli', 'Kochi', 'Ooty', 'Alleppey', 'Varanasi', 'Pondicherry',
@@ -28,9 +30,16 @@ const HomeSearchWidget = () => {
   console.log(destinationTypes)
 
   const handleSelect = (city) => {
-  setSearchTerm(city);
-  setCitySelected(true); // ✅ hide suggestions
-};
+    setSearchTerm(city);
+    setCitySelected(true);
+    setTimeout(() => {
+      typeDropdownRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+    toast.success(`City selected: ${city}`, {
+    position: "top-center",
+    autoClose: 2000,
+  });
+  };
 
   const cities = citiesList.filter((city) => {
     return city.toLowerCase().includes(searchTerm.trim().toLowerCase());
@@ -56,6 +65,7 @@ const HomeSearchWidget = () => {
                 });
                 AOS.refresh(); // Recalculate positions of elements
               }, []);
+  
   return (
     <>
       <div className="container-fluid" data-aos="fade-up">
@@ -105,7 +115,7 @@ const HomeSearchWidget = () => {
                   <label htmlFor="travelPlace" className="form-label fs-5">
                   Type (please Select the destination type.)
                 </label>
-                <select className="form-control" value={searchType} onChange={(e)=>setSearchType(e.target.value)}>
+                <select className="form-control" ref={typeDropdownRef} value={searchType} onChange={(e)=>setSearchType(e.target.value)}>
                   <option value="">-- Select a type --</option>
                   {destinationTypes.map((ele,i)=>(
                     <option key={i} value={ele.type}>{ele.type}</option>
