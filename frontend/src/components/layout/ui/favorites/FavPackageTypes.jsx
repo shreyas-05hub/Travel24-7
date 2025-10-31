@@ -34,7 +34,7 @@ const FavPackageTypes = () => {
       <div className="row">
         {favorites.map((type, i) => {
           const [destinationName, packageType] = type.split("-");
-          const destination = packageData[destinationName];
+          const destination = packageData[destinationName] || {};
           console.log(type);
           const cityName = type.split("-");
           console.log(cityName);
@@ -53,7 +53,7 @@ const FavPackageTypes = () => {
                 style={{ transition: "all 0.5s ease" }}
               >
                 <img
-                  src={`./src/assets/assets1/${cityName[0]}_${card.type
+                  src={`/assets1/${cityName[0]}_${card.type
                     .toLowerCase()
                     .replaceAll(" ", "")}.jpg`}
                   className="card-img-top"

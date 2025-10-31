@@ -15,8 +15,8 @@ const PackagesData = () => {
   const [rangeValue, setRangeValue] = useState(3000);
   const [duration, setDuration] = useState(2);
   const { destination } = useDestinationData();
-  const data = packageData[destination];
-  const { destinationTypes } = data;
+  const data = packageData[destination] || {};
+  const { destinationTypes=[] } = data;
   console.log(destinationTypes);
   const { setPackage } = usePackageData();
   console.log("sp", setPackage);
@@ -162,7 +162,6 @@ const PackagesData = () => {
       JSON.stringify(updatedFavorites)
     );
   };
-
   return (
     <div className="container-fluid my-4">
       <div className="container">
@@ -189,6 +188,8 @@ const PackagesData = () => {
         </output>
         <div className="row">
           {destinationTypes.map((ele, i) => {
+            const imagePath = `/assets1/${destination}_${ele.type.toLowerCase().replaceAll(" ", "")}.jpg`;
+
             console.log(ele);
             const typeFeedback = feedback[ele.type] || {};
             const totalLikes =
@@ -197,17 +198,17 @@ const PackagesData = () => {
               (typeFeedback.baseDislikes || 0) +
               (typeFeedback.disliked ? 1 : 0);
             const favKey = `${destination}-${ele.type}`;
+            
             return (
               <div className="col-12 col-sm-12 col-md-6 col-lg-4 py-3" key={i}>
                 <div className="card">
                   <img
-                    src={`./src/assets/assets1/${destination}_${ele.type
-                      .toLowerCase()
-                      .replaceAll(" ", "")}.jpg`}
-                    className="card-img-top"
-                    style={{ height: "300px" }}
-                    alt="..."
-                  />
+                      src={imagePath}
+                      className="card-img-top"
+                      style={{ height: "300px" }}
+                      alt={`${destination} ${ele.type}`}
+                    />
+
                   <div className="card-body">
                     <h5 className="card-title">{ele.type}</h5>
                     <p className="card-text">{ele.description}</p>

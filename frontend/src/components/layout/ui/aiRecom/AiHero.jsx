@@ -2,12 +2,20 @@ import React from "react";
 import "./aiHeroBg.css";
 import useTravelCost from "../../context/TravelContext";
 import { UserOutlined } from "@ant-design/icons";
-
+import img1 from "../../../../assets/aiherobg.jpg"
 const AiHero = () => {
   const { user } = useTravelCost();
   return (
     <>
-      <div className="aiHeroBG text-center py-5">
+      <div className="aiHeroBG text-center py-5" 
+          style={{
+            backgroundImage: `url(${img1})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            height:"400px"
+          }}
+      >
         <div className="my-5 py-5">
           <h1 className="text-danger">AI Travel Recommendations</h1>
           <p className="fw-medium fs-5">

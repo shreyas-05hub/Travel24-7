@@ -2,6 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./homeslider.css";
 import AOS from "aos";
+import img1 from "../../../../assets/Goa.webp"
+import img2 from "../../../../assets/ooty.jpg"
+import img3 from "../../../../assets/jaisalmer.jpeg"
+import img4 from "../../../../assets/udaipur.jpeg"
+import img5 from "../../../../assets/varanasi.jpg"
+import img6 from "../../../../assets/manali.jpeg"
 
 const HomeSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -57,7 +63,7 @@ const HomeSlider = () => {
               </div>
               <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                 <img
-                  src="./src/assets/Goa.webp"
+                  src={img1}
                   className="d-block w-100 img-fluid"
                   alt="..."
                   style={{ height: "500px" }}
@@ -69,7 +75,7 @@ const HomeSlider = () => {
             <div className="row">
               <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                 <img
-                  src="./src/assets/ooty.jpg"
+                  src={img2}
                   className="d-block w-100 img-fluid"
                   alt="..."
                   style={{ height: "500px" }}
@@ -103,7 +109,7 @@ const HomeSlider = () => {
               </div>
               <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                 <img
-                  src="./src/assets/jaisalmer.jpeg"
+                  src={img3}
                   className="d-block w-100 img-fluid"
                   alt="..."
                   style={{ height: "500px" }}
@@ -115,7 +121,7 @@ const HomeSlider = () => {
             <div className="row">
               <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                 <img
-                  src="./src/assets/udaipur.jpeg"
+                  src={img4}
                   className="d-block w-100 img-fluid"
                   alt="..."
                   style={{ height: "500px" }}
@@ -149,7 +155,7 @@ const HomeSlider = () => {
               </div>
               <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                 <img
-                  src="./src/assets/varanasi.jpg"
+                  src={img5}
                   className="d-block w-100 img-fluid"
                   alt="..."
                   style={{ height: "500px" }}
@@ -161,7 +167,7 @@ const HomeSlider = () => {
             <div className="row">
               <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                 <img
-                  src="./src/assets/manali.jpeg"
+                  src={img6}
                   className="d-block w-100 img-fluid"
                   alt="..."
                   style={{ height: "500px" }}

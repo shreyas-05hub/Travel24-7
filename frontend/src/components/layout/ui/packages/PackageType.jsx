@@ -107,36 +107,17 @@ const PackageType = () => {
         }
       })();
 
-  const safeDestination = destination ? destination.trim() : "default";
-  const safeType = type ? type.toLowerCase().replaceAll(" ", "") : "default";
-
-  // ✅ Background Image with fallback logic
-  const [bgImage, setBgImage] = useState(
-    `./src/assets/assets1/${safeDestination}_${safeType}.jpg`
-  );
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = `./src/assets/assets1/${safeDestination}_${safeType}.jpg`;
-
-    img.onload = () => {
-      setBgImage(img.src); // valid image found
-    };
-    img.onerror = () => {
-      setBgImage("./src/assets/default_background.jpg"); // fallback
-    };
-  }, [safeDestination, safeType]);
 
   return (
     <div
       className="container-fluid text-center min-vh-100 py-4"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-      }}
       data-aos="fade-up"
+       style={{
+            backgroundImage: `url(/assets1/${destination}_${type.toLowerCase().replaceAll(" ", "")}.jpg)`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+          }}
     >
       <h3 className="text-center text-white mb-4">
         {safeRecommendations.length > 0
