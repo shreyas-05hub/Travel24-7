@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import travelImage from "../../../../assets/travel.webp";
+
 const HomeSearchWidget = () => {
   const { setSearch } = useHomeSearchData();
   const [searchTerm, setSearchTerm] = useState("");
@@ -154,7 +156,7 @@ const HomeSearchWidget = () => {
           </div>
           <div className="col-sm-12 col-md-6 col-lg-6 px-0 order-1 order-lg-2">
             <img
-              src="./src/assets/travel.webp"
+              src={travelImage}
               alt=""
               className="img-fluid h-100"
             />

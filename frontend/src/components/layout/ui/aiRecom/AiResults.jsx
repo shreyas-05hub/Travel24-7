@@ -1,5 +1,9 @@
 import React from "react";
 import "./airesults.css";
+import img1 from "../../../../assets/banglorePckg1.avif";
+import img2 from "../../../../assets/banglorePckg2.avif";
+import img3 from "../../../../assets/banglorePckg3.avif";
+import img4 from "../../../../assets/banglorePckg4.avif";
 const AiResults = () => {
   return (
     <div className="container-fluid aiResults py-5">
@@ -9,7 +13,7 @@ const AiResults = () => {
             <div className="card pckgCard border-0 outline-0">
               <div className="position-relative">
                 <img
-                  src="./src/assets/banglorePckg1.avif"
+                  src={img1}
                   className="card-img-top "
                   alt="..."
                   style={{ height: "200px" }}
@@ -51,7 +55,7 @@ const AiResults = () => {
             <div className="card pckgCard border-0 outline-0">
               <div className="position-relative">
                 <img
-                  src="./src/assets/banglorePckg2.avif"
+                  src={img2}
                   className="card-img-top "
                   alt="..."
                   style={{ height: "200px" }}
@@ -93,7 +97,7 @@ const AiResults = () => {
             <div className="card pckgCard border-0 outline-0">
               <div className="position-relative">
                 <img
-                  src="./src/assets/banglorePckg3.avif"
+                  src={img3}
                   className="card-img-top "
                   alt="..."
                   style={{ height: "200px" }}
@@ -135,7 +139,7 @@ const AiResults = () => {
             <div className="card pckgCard border-0 outline-0">
               <div className="position-relative">
                 <img
-                  src="./src/assets/banglorePckg4.avif"
+                  src={img4}
                   className="card-img-top "
                   alt="..."
                   style={{ height: "200px" }}
