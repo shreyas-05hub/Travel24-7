@@ -3,11 +3,11 @@ flask==3.0.0
 flask-cors==4.0.0
 
 # Data Processing
-pandas
-numpy
-scikit-learn
-scipy
-fsspec
+pandas: 2.3.3 
+numpy: 2.3.4 
+scikit-learn: 1.7.1 
+scipy: 1.16.2 
+fsspec: 2025.9.0 
 
 # Alternative If not Running 
 # pip install flask flask-cors pandas numpy scikit-learn scipy fsspec 
