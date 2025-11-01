@@ -9,7 +9,7 @@ const Login = () => {
   let navigate = useNavigate();
   let startLogin = async () => {
     await loginWithGoogle();
-    navigate("/home");
+    navigate("/home=");
   };
   return (
     <div className="card">

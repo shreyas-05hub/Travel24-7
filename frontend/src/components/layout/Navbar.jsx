@@ -26,7 +26,7 @@ const Navbar = () => {
   const handleAuth = async () => {
     if (!user) {
       await loginWithGoogle();
-      navigate("/packages");
+      navigate("/home");
       toast("user logged in successfully");
     } else {
       await logout();

@@ -88,6 +88,8 @@ const PackageType = () => {
   const { Package } = usePackageData();
   const { destination } = useDestinationData();
 
+  console.log(destination)
+
   // ✅ Initialize AOS
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -106,20 +108,23 @@ const PackageType = () => {
           return [];
         }
       })();
+      console.log(type)
+      console.log(`/assets1/${destination}_${type.toLowerCase().replaceAll(" ", "")}.jpg`)
 
+      
 
   return (
     <div
       className="container-fluid text-center min-vh-100 py-4"
       data-aos="fade-up"
        style={{
-            backgroundImage: `url(/assets1/${destination}_${type.toLowerCase().replaceAll(" ", "")}.jpg)`,
+            backgroundImage: `url(/assets1/${destination.replaceAll(" ","")}_${type.toLowerCase().replaceAll(" ", "")}.jpg)`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center center",
           }}
     >
-      <h3 className="text-center text-white mb-4">
+      <h3 className="text-center text-dark fw-bold mb-4">
         {safeRecommendations.length > 0
           ? "Top Recommendations"
           : "No Packages Found"}
@@ -127,8 +132,13 @@ const PackageType = () => {
 
       <div className="row justify-content-center">
         {safeRecommendations.map((ele, i) => (
-          <div className="col-md-4 col-sm-6" key={i} data-aos="zoom-in">
-            <div className="card shadow-lg mx-auto my-3">
+          <div className="col-md-4 col-sm-6 px-4" key={i} data-aos="zoom-in">
+            <div className="card shadow-lg mx-auto my-3" style={{
+              backgroundImage:"url(/assets/typeCard.jpg)",
+              backgroundRepeat:"no-repeat",
+              backgroundSize:"cover",
+              backgroundPosition:"center center"
+            }}>
               <div className="card-body">
                 <p className="card-text fw-bold text-danger">
                   ID: {ele.Package_Id}
@@ -144,7 +154,7 @@ const PackageType = () => {
                   {ele.Package_Type}
                 </h5>
                 <Link
-                  to={`/${ele.Package_Id}`}
+                  to={`/packages/${ele.Package_Id}`}
                   className="btn btn-primary mt-3"
                 >
                   Get Details

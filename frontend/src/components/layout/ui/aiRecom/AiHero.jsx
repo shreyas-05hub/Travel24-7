@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./aiHeroBg.css";
 import useTravelCost from "../../context/TravelContext";
 import { UserOutlined } from "@ant-design/icons";
 import img1 from "../../../../assets/aiherobg.jpg"
+import AOS from "aos";
+
+
 const AiHero = () => {
   const { user } = useTravelCost();
+  useEffect(() => {
+        AOS.init({ duration: 1000, once: true });
+        AOS.refresh();
+      }, []);
   return (
     <>
       <div className="aiHeroBG text-center py-5" 
@@ -15,6 +22,7 @@ const AiHero = () => {
             backgroundPosition: "center center",
             height:"400px"
           }}
+          data-aos="fade-up"
       >
         <div className="my-5 py-5">
           <h1 className="text-danger">AI Travel Recommendations</h1>

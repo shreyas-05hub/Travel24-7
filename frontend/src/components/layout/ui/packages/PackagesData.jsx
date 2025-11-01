@@ -4,6 +4,7 @@ import packageData from "../../data/packageData";
 import { usePackageData } from "./PackageProvider";
 import FavPackageTypes from "../favorites/FavPackageTypes";
 import { useFromcityData } from "../destinations/FromcityContext";
+import AOS from "aos";
 
 const PackagesData = () => {
   const [favorites, setFavorites] = useState(() => {
@@ -147,7 +148,7 @@ const PackagesData = () => {
   };
 
   const toggleFavorite = (destination, type) => {
-    const key = `${destination}-${type}`;
+    const key = `${destination}_${type}`;
     let updatedFavorites;
 
     if (favorites.includes(key)) {
@@ -162,6 +163,10 @@ const PackagesData = () => {
       JSON.stringify(updatedFavorites)
     );
   };
+  useEffect(() => {
+      AOS.init({ duration: 1000, once: true });
+      AOS.refresh();
+    }, []);
   return (
     <div className="container-fluid my-4">
       <div className="container">
@@ -188,7 +193,8 @@ const PackagesData = () => {
         </output>
         <div className="row">
           {destinationTypes.map((ele, i) => {
-            const imagePath = `/assets1/${destination}_${ele.type.toLowerCase().replaceAll(" ", "")}.jpg`;
+            console.log(`/assets1/${destination}_${ele.type.toLowerCase().replaceAll(" ", "")}.jpg`)
+            const imagePath = `/assets1/${destination.replaceAll(" ","")}_${ele.type.toLowerCase().replaceAll(" ", "")}.jpg`;
 
             console.log(ele);
             const typeFeedback = feedback[ele.type] || {};
@@ -197,11 +203,11 @@ const PackagesData = () => {
             const totalDislikes =
               (typeFeedback.baseDislikes || 0) +
               (typeFeedback.disliked ? 1 : 0);
-            const favKey = `${destination}-${ele.type}`;
+            const favKey = `${destination}_${ele.type}`;
             
             return (
               <div className="col-12 col-sm-12 col-md-6 col-lg-4 py-3" key={i}>
-                <div className="card">
+                <div className="card" data-aos="flip-down">
                   <img
                       src={imagePath}
                       className="card-img-top"

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import packageData from "../../data/packageData";
 import { useHomeSearchData } from "../home/HomeSearchContext";
 import "./favPackageType.css";
+import AOS from "aos";
 
 const FavPackageTypes = () => {
   const [highlightedKey, setHighlightedKey] = useState(null);
@@ -27,21 +28,26 @@ const FavPackageTypes = () => {
       }
     }
   }, [Search, favorites]);
+  useEffect(() => {
+              AOS.init({ duration: 1000, once: true });
+              AOS.refresh();
+            }, []);
 
   return (
     <div className="container my-4">
       <h3 className="text-center">Your Favorite Package Types</h3>
-      <div className="row">
+      <div className="row" data-aos="flip-down">
         {favorites.map((type, i) => {
-          const [destinationName, packageType] = type.split("-");
+          console.log(type)
+          const [destinationName, packageType] = type.split("_");
+          console.log(destinationName)
           const destination = packageData[destinationName] || {};
-          console.log(type);
-          const cityName = type.split("-");
-          console.log(cityName);
-          const card = destination?.destinationTypes.find(
+          const cityName = destinationName;
+          console.log(cityName)
+          // ensure destinationTypes is an array before calling find
+          const card = (destination.destinationTypes || []).find(
             (dt) => dt.type === packageType
           );
-          console.log(card);
           const favKey = `${destinationName}-${packageType}`;
           const isHighlighted = favKey === highlightedKey;
           return card ? (
@@ -52,8 +58,13 @@ const FavPackageTypes = () => {
                 }`}
                 style={{ transition: "all 0.5s ease" }}
               >
+                {console.log(`/assets1/${cityName.replaceAll(" ","")}_${card.type
+                    .toLowerCase()
+                    .replaceAll(" ", "")}.jpg`)
+                    }
+                    {console.log(cityName)}
                 <img
-                  src={`/assets1/${cityName[0]}_${card.type
+                  src={`/assets1/${cityName.replaceAll(" ","")}_${card.type
                     .toLowerCase()
                     .replaceAll(" ", "")}.jpg`}
                   className="card-img-top"
@@ -62,7 +73,7 @@ const FavPackageTypes = () => {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{card.type}</h5>
-                  <p className="card-text fw-bold fs-5">{cityName[0]}</p>
+                  <p className="card-text fw-bold fs-5">{cityName}</p>
                   <button
                     className="btn btn-danger"
                     onClick={() => handleRemove(type)}

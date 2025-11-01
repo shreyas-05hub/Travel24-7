@@ -1,14 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./airesults.css";
 import img1 from "../../../../assets/banglorePckg1.avif";
 import img2 from "../../../../assets/banglorePckg2.avif";
 import img3 from "../../../../assets/banglorePckg3.avif";
 import img4 from "../../../../assets/banglorePckg4.avif";
+import AOS from "aos";
+
 const AiResults = () => {
+  useEffect(() => {
+          AOS.init({ duration: 1000, once: true });
+          AOS.refresh();
+        }, []);
   return (
     <div className="container-fluid aiResults py-5">
       <div className="container">
-        <div className="row">
+        <div className="row" data-aos="zoom-in-down">
           <div className="col-12 col-sm-12 col-md-6 col-lg-3 my-3">
             <div className="card pckgCard border-0 outline-0">
               <div className="position-relative">

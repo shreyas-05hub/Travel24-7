@@ -25,6 +25,7 @@ let PackageDetails = React.lazy(() =>
   import("./components/layout/ui/packages/PackageDetails")
 );
 let Favourites = React.lazy(() => import("./pages/Favourites"));
+let PageNotFound=React.lazy(()=>import("./pages/PageNotFound"))
 
 const App = () => {
   return (
@@ -39,7 +40,7 @@ const App = () => {
                   <Route path="/" element={<Navigate to={"/home"} />} />
                   <Route path={"/home"} element={<Home />} />
                   <Route path={"/packages"} element={<Packages />} />
-                  <Route path="/:packageID" element={<PackageDetails />} />
+                  <Route path="/packages/:packageID" element={<PackageDetails />} />
                   <Route
                     path={"/recommendation"}
                     element={<Recommendations />}
@@ -47,6 +48,7 @@ const App = () => {
                   <Route path={"/Destinations"} element={<Destinations />} />
                   <Route path={"/favourites"} element={<Favourites />} />
                   <Route path={"/login"} element={<Login />} />
+                  <Route path={"*"} element={<PageNotFound />} />
                 </Routes>
               </Suspense>
             </DestinationProvider>

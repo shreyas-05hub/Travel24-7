@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./aidashboard.css";
+import AOS from "aos";
 
 // -----------------------------------------
 // 🏙️ Static Data Lists
@@ -137,13 +138,18 @@ const AIDashboard = () => {
   const decreaseBudget = () =>
     setRangeValue((prev) => (prev > 1000 ? prev - 1000 : 1000));
 
+   useEffect(() => {
+      AOS.init({ duration: 1000, once: true });
+      AOS.refresh();
+    }, []);
+
   // -----------------------------------------
   // 🖥️ UI Render
   // -----------------------------------------
   return (
     <>
       {/* 🌍 Form Section */}
-      <div className="form w-50 mx-auto p-3 my-4 bg-light rounded-4 shadow-sm">
+      <div className="form w-50 mx-auto p-3 my-4 bg-light rounded-4 shadow-sm" data-aos="fade-down">
         <div className="my-3 px-sm-4">
           {/* Departure City */}
           <label htmlFor="departureCity" className="my-3 fw-bold fs-5">
