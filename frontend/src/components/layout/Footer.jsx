@@ -83,7 +83,7 @@ const Footer = () => {
           <div className="row align-items-center">
             <div className="col-md-6 col-lg-8">
               <p className="text-md-start text-center mb-md-0">
-                &copy; {new Date().getFullYear()} TravelCo. All rights reserved.
+                &copy; {new Date().getFullYear()} Margadharshi.Co. All rights reserved.
               </p>
             </div>
             <div className="col-md-6 col-lg-4 text-md-end text-center">

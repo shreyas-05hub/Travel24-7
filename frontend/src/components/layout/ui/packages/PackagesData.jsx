@@ -148,21 +148,22 @@ const PackagesData = () => {
   };
 
   const toggleFavorite = (destination, type) => {
-    const key = `${destination}_${type}`;
-    let updatedFavorites;
+  const key = `${destination}-${type}`; // ✅ Use hyphen consistently
+  let updatedFavorites;
 
-    if (favorites.includes(key)) {
-      updatedFavorites = favorites.filter((fav) => fav !== key);
-    } else {
-      updatedFavorites = [...favorites, key];
-    }
+  if (favorites.includes(key)) {
+    updatedFavorites = favorites.filter((fav) => fav !== key);
+  } else {
+    updatedFavorites = [...favorites, key];
+  }
 
-    setFavorites(updatedFavorites);
-    localStorage.setItem(
-      "favoritePackageTypes",
-      JSON.stringify(updatedFavorites)
-    );
-  };
+  setFavorites(updatedFavorites);
+  localStorage.setItem(
+    "favoritePackageTypes",
+    JSON.stringify(updatedFavorites)
+  );
+};
+
   useEffect(() => {
       AOS.init({ duration: 1000, once: true });
       AOS.refresh();
@@ -203,7 +204,7 @@ const PackagesData = () => {
             const totalDislikes =
               (typeFeedback.baseDislikes || 0) +
               (typeFeedback.disliked ? 1 : 0);
-            const favKey = `${destination}_${ele.type}`;
+            const favKey = `${destination}-${ele.type}`;
             
             return (
               <div className="col-12 col-sm-12 col-md-6 col-lg-4 py-3" key={i}>

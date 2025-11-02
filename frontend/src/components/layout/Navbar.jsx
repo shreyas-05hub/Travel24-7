@@ -39,7 +39,7 @@ const Navbar = () => {
       <div className="container-fluid">
         {/* Bootstrap brand/logo class */}
         <NavLink to="/" className="navbar-brand fs-4 text-primary">
-          TravelSite
+          MARGHADHARSHI
         </NavLink>
 
         {/* Bootstrap toggler button for smaller screens */}

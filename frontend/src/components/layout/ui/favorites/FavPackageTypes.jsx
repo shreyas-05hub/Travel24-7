@@ -8,9 +8,15 @@ const FavPackageTypes = () => {
   const [highlightedKey, setHighlightedKey] = useState(null);
   const { Search } = useHomeSearchData();
   console.log(Search);
+  // const [favorites, setFavorites] = useState(() => {
+  //   return JSON.parse(localStorage.getItem("favoritePackageTypes")) || [];
+  // });
+
   const [favorites, setFavorites] = useState(() => {
-    return JSON.parse(localStorage.getItem("favoritePackageTypes")) || [];
-  });
+  const stored = localStorage.getItem("favoritePackageTypes");
+  return stored ? JSON.parse(stored) : [];
+});
+
 
   const handleRemove = (type) => {
     const updated = favorites.filter((fav) => fav !== type);
@@ -39,7 +45,10 @@ const FavPackageTypes = () => {
       <div className="row" data-aos="flip-down">
         {favorites.map((type, i) => {
           console.log(type)
-          const [destinationName, packageType] = type.split("_");
+          const lastDashIndex = type.lastIndexOf("-");
+          const destinationName = type.slice(0, lastDashIndex);
+          const packageType = type.slice(lastDashIndex + 1);
+
           console.log(destinationName)
           const destination = packageData[destinationName] || {};
           const cityName = destinationName;
