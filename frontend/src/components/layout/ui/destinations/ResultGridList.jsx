@@ -66,7 +66,7 @@ const ResultGridList = () => {
     { image: mysore, title: "Mysuru", description: "The City of Palaces — admire royal architecture, vibrant markets, and a rich blend of history and culture." },
     { image: ooty, title: "Ooty", description: "A charming hill station wrapped in misty hills, lakes, and colonial-era charm — nature at its most peaceful." },
     { image: pondicherry, title: "Pondicherry", description: "A slice of French elegance in India — tranquil beaches, colorful streets, and a relaxed seaside charm." },
-    { image: rann, title: "Rann of Kutch", description: "A surreal white desert that glows under moonlight — experience cultural festivals, handicrafts, and desert adventures." },
+    // { image: rann, title: "Rann of Kutch", description: "A surreal white desert that glows under moonlight — experience cultural festivals, handicrafts, and desert adventures." },
     { image: rishikesh, title: "Rishikesh", description: "The Yoga Capital of the World — an adventure and spiritual retreat along the banks of the Ganges." },
     { image: shimla, title: "Shimla", description: "The Queen of Hills — offering colonial charm, cool mountain breezes, and scenic landscapes for a refreshing getaway." },
     { image: varanasi, title: "Varanasi", description: "The spiritual capital of India — witness Ganga Aarti, sacred ghats, and centuries of divine tradition." },
