@@ -209,7 +209,7 @@ const PackagesData = () => {
 
         <div className="row">
           {destinationTypes.map((ele, i) => {
-            const imagePath = `/assets1/${destination}_${ele.type
+            const imagePath = `/assets1/${destination.replaceAll(" ", "")}_${ele.type
               .toLowerCase()
               .replaceAll(" ", "")}.jpg`;
 
