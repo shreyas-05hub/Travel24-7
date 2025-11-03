@@ -111,7 +111,7 @@ You are free to use, modify, and distribute it with attribution.
 👨‍💻 Author
 
 Data Science : 1. Anitha Sirigireddy  [devianiatha5602@gmail.com] [https://github.com/Anitha42381]
-               2. NaveenKumarReddy Bapathi  [bapathinaveenkumarreddy2@gmail.com] []
+               2. NaveenKumarReddy Bapathi  [bapathinaveenkumarreddy2@gmail.com] [https://github.com/Naveen4123]
                3. Ganesh Sura  [email:ganesh2800139@gmail.com] [ GitHub:https://github.com/ganesh2800139-creator]
              
 Full Stack Development : 1. Shreyas Kandekar [email:shreyaskandekar07@gmail.com] [ GitHub:https://github.com/shreyas-05hub]
