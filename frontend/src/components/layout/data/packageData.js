@@ -80,7 +80,7 @@ let packageData = {
     destinationTypes: [
       { type: "Coastal" },
       { type: "Beach" },
-      { type: "Adventure" },
+      // { type: "Adventure" },
       { type: "City" },
       { type: "Historical" },
       { type: "Cultural" },

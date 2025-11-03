@@ -46,7 +46,7 @@ const Footer = () => {
                 Get In Touch
               </h5>
               <p>
-                <i className="fas fa-map-marker-alt me-3"></i> 123 Travel Lane,
+                <i className="fas fa-map-marker-alt me-3"></i> 123 Marga Darshi,
                 Adventure City
               </p>
               <p>
@@ -55,7 +55,7 @@ const Footer = () => {
               <p>
                 <i className="fas fa-envelope me-3"></i>
                 <a className="text-white text-decoration-none">
-                  info@travelsite.com
+                  margadarshi@travelsite.com
                 </a>
               </p>
             </div>

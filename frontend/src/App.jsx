@@ -1,18 +1,12 @@
 import React, { Suspense } from "react";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-// import Home from './pages/Home';
-// import Packages from './pages/Packages';
-// import Recommendations from './pages/Recommendations';
-// import Destinations from './pages/Destinations';
-import { Routes, Route } from "react-router-dom";
-import { Navigate } from "react-router-dom";
-// import Login from './pages/Login';
+import { Routes, Route, Navigate } from "react-router-dom";
 import DestinationProvider from "./components/layout/ui/destinations/DestinationContext";
 import PackageProvider from "./components/layout/ui/packages/PackageProvider";
-// import PackageDetails from './components/layout/ui/packages/PackageDetails';
 import FromcityProvider from "./components/layout/ui/destinations/FromcityContext";
 import HomeSearchProvider from "./components/layout/ui/home/HomeSearchContext";
+import ProtectedRoute from "./components/layout/protected route/ProtectedRoute";
 
 import "./app.css";
 
@@ -25,7 +19,7 @@ let PackageDetails = React.lazy(() =>
   import("./components/layout/ui/packages/PackageDetails")
 );
 let Favourites = React.lazy(() => import("./pages/Favourites"));
-let PageNotFound=React.lazy(()=>import("./pages/PageNotFound"))
+let PageNotFound = React.lazy(() => import("./pages/PageNotFound"));
 
 const App = () => {
   return (
@@ -37,18 +31,67 @@ const App = () => {
             <DestinationProvider>
               <Suspense fallback={<p className="loader"></p>}>
                 <Routes>
-                  <Route path="/" element={<Navigate to={"/home"} />} />
-                  <Route path={"/home"} element={<Home />} />
-                  <Route path={"/packages"} element={<Packages />} />
-                  <Route path="/packages/:packageID" element={<PackageDetails />} />
-                  <Route
-                    path={"/recommendation"}
-                    element={<Recommendations />}
-                  />
-                  <Route path={"/Destinations"} element={<Destinations />} />
-                  <Route path={"/favourites"} element={<Favourites />} />
-                  <Route path={"/login"} element={<Login />} />
-                  <Route path={"*"} element={<PageNotFound />} />
+                  {/* Default redirect */}
+                  <Route path="/" element={<Navigate to="/home" />} />
+
+                    {/* Home is public */}
+                    {/* <Route path="/home" element={<Home />} /> */}
+                    
+                    <Route
+                        path="/home"
+                        element={
+                          <ProtectedRoute>
+                            <Home />
+                          </ProtectedRoute>
+                        }
+                      />
+
+                    {/* Protected routes */}
+                    <Route
+                      path="/destinations"
+                      element={
+                        <ProtectedRoute>
+                          <Destinations />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/packages"
+                      element={
+                        <ProtectedRoute>
+                          <Packages />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/packages/:packageID"
+                      element={
+                        <ProtectedRoute>
+                          <PackageDetails />
+                        </ProtectedRoute>
+                      }
+                    />
+                    {/* <Route
+                      path="/recommendation"
+                      element={
+                        <ProtectedRoute>
+                          <Recommendations />
+                        </ProtectedRoute>
+                      }
+                    /> */}
+                    <Route
+                      path="/favourites"
+                      element={
+                        <ProtectedRoute>
+                          <Favourites />
+                        </ProtectedRoute>
+                      }
+                    />
+
+
+                  {/* Public Routes */}
+                  <Route path="/login" element={<Login />} />
+                  <Route path="*" element={<PageNotFound />} />
                 </Routes>
               </Suspense>
             </DestinationProvider>
