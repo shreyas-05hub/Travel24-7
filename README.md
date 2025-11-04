@@ -265,6 +265,17 @@ The Flask backend exposes endpoints for:
 - Add your model and dataset to Flask.
 - Ensure CORS is enabled to communicate with frontend hosted on Vercel.
 
+### 🧱 Frontend (Vite React)
+```bash
+cd frontend
+npm install
+npm run dev
+
+cd backend
+pip install -r requirements.txt
+python app.py
+```
+
 ---
 
 ## 🚀 Future Enhancements
