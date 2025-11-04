@@ -182,7 +182,7 @@ Deployment is handled using **Vercel (for frontend)** and **Render (for backend)
 ✅ **Dynamic Travel Recommendations** – Fetches the top 5 relevant packages from the Flask backend API.  
 ✅ **Search and Filter** – Users can select destination, type, or city to get tailored recommendations.  
 ✅ **Favorites Management** – Add or remove favorite destinations for quick access.   
-✅ **Authentication System** – Includes login, signup, forgot password, and reset password functionality.  
+✅ **Authentication System** – Includes Google authentication functionality.  
 ✅ **Protected Routes** – Restricts access to certain pages based on authentication state.  
 ✅ **Firebase Integration** – Handles secure user authentication and account management.  
 ✅ **Responsive Layout** – Works seamlessly on desktop and mobile devices.  
