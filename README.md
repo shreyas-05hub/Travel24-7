@@ -277,16 +277,6 @@ The Flask backend exposes endpoints for:
 
 ---
 
-### 🧱 Frontend (Vite React)
-```bash
-cd frontend
-npm install
-npm run dev
-
-cd backend
-pip install -r requirements.txt
-python app.py
-
 ---
 
 ## 👥 Contributors
