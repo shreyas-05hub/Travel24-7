@@ -153,7 +153,6 @@ Deployed via **Streamlit**, allowing users to:
 2️⃣ Get **Top 5 Recommended Packages** with Similarity Scores  
 3️⃣ View details like **Accommodation**, **Season**, **Transport Mode**
 
----
 
 ## 🌐 Streamlit & Git Integration
 
