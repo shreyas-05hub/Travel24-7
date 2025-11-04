@@ -178,12 +178,10 @@ Deployment is handled using **Vercel (for frontend)** and **Render (for backend)
 
 ## 🚀 Features
 
-✅ **Interactive UI** – Modern and responsive frontend built with React and Tailwind CSS.  
+✅ **Interactive UI** – Modern and responsive frontend built with React and Bootstrap CSS.  
 ✅ **Dynamic Travel Recommendations** – Fetches the top 5 relevant packages from the Flask backend API.  
 ✅ **Search and Filter** – Users can select destination, type, or city to get tailored recommendations.  
-✅ **Favorites Management** – Add or remove favorite destinations for quick access.  
-✅ **Voice Assistance** – Integrated personal chatbot that supports voice commands and responses.  
-✅ **AI Image Generation** – Users can generate destination images using the Hugging Face API.  
+✅ **Favorites Management** – Add or remove favorite destinations for quick access.   
 ✅ **Authentication System** – Includes login, signup, forgot password, and reset password functionality.  
 ✅ **Protected Routes** – Restricts access to certain pages based on authentication state.  
 ✅ **Firebase Integration** – Handles secure user authentication and account management.  
@@ -196,11 +194,11 @@ Deployment is handled using **Vercel (for frontend)** and **Render (for backend)
 | Component | Description |
 |------------|-------------|
 | **Frontend Framework** | React (Vite) |
-| **Styling** | CSS3, Tailwind CSS |
+| **Styling** | CSS3, Bootstrap Antd |
 | **Routing** | React Router DOM |
 | **Backend Framework** | Flask (Python) |
 | **Database / Authentication** | Firebase |
-| **APIs Used** | Flask API (for recommendations), Hugging Face API (for AI Image generation), GNews API (for news), Weather API (for weather updates), Wikipedia API (for info/images) |
+| **APIs Used** | Flask API (for recommendations) |
 | **Deployment** | Frontend – Vercel<br>Backend – Render |
 | **Version Control** | Git and GitHub |
 
@@ -212,22 +210,19 @@ Deployment is handled using **Vercel (for frontend)** and **Render (for backend)
 
 ### 🧭 **Home Module**
 - Displays introduction and search interface.
-- Users select **From City**, **Destination**, and **Type** to fetch recommendations.
+
+### 🧭 **Destination Module**
+- Users select **From City**, **Destination**.
 
 ### 🧳 **Packages Module**
-- Displays travel packages dynamically from `packageData.js`.
+- user select **Budget** **Duration** **Type** (derived from `packageData.js` to fetch recommendations
+- Displays travel packages dynamically from backend data.
 - Allows filtering and saving favorites.
 
 ### ❤️ **Favorites Module**
 - Stores user-selected favorite destinations.
 - Data persists locally for quick access.
 
-### 🤖 **Personal Chatbot & AI Page**
-- Built using Gemini API for limited query handling.
-- Includes image recognition and AI text-to-image generation via Hugging Face API.
-
-### 🌤️ **Current Info Page**
-- Fetches live data from Wikipedia, GNews, and Weather API.
 
 ---
 
@@ -253,11 +248,11 @@ The Flask backend exposes endpoints for:
 
 ## 🧠 How It Works (End-to-End)
 
-1️⃣ User selects **departure city**, **destination**, and **destination type** from the frontend.  
+1️⃣ User selects **departure city**, **destination**, **Bufget**, **Duration** and **destination type** from the frontend.  
 2️⃣ These details are sent to the Flask backend via API request.  
 3️⃣ Backend applies **KNN (Cosine Similarity)** model to find the most relevant 5 packages.  
 4️⃣ The frontend displays these recommendations dynamically.  
-5️⃣ Users can mark favorites, view details, or generate AI images of destinations.  
+5️⃣ Users can mark favorites, view details of destinations.  
 
 ---
 
