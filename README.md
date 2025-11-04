@@ -129,3 +129,33 @@ def recommend_packages(from_city, destination, destination_type, duration, budge
     similarity = cosine_similarity(user_vector, dataset_vectors)
     top_indices = similarity[0].argsort()[-top_n:][::-1]
     return df.iloc[top_indices][['Destination','Package_Type','Budget','Trip_Duration_Days']]
+⚙️ Real-Time Implementation
+
+Deployed via Streamlit, allowing users to:
+
+1️⃣ Select preferences (From City, Destination, Type, Duration, Budget)
+2️⃣ Get Top 5 Recommended Packages with Similarity Scores
+3️⃣ View details like Accommodation, Season, Transport Mode
+
+🌐 Streamlit & Git Integration
+
+Streamlit App for real-time interaction
+
+GitHub repository for code versioning
+
+https://travel-tgxss3l8boweq5cxf8tmdy.streamlit.app/
+
+🚀 Future Enhancements
+
+🚗 Integrate Google Maps API to display trip locations
+⭐ Add user ratings and reviews
+🧮 Adopt Deep Learning (Collaborative Filtering)
+🎯 Add advanced filters by season or budget range
+📊 Extend Power BI dashboard for real-time user analytics
+
+👥 Contributors
+Role	Members
+Data Science Team	Anitha Sirigireddy · Naveen Kumar Reddy Bapathi · Ganesh Sura
+Full Stack Team	Shreyas Kandekar · Rajoli Srinivas · Malli Prudhvi
+
+    
