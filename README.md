@@ -143,9 +143,10 @@ user_df = pd.DataFrame({
     return df.iloc[top_indices][['Destination','Package_Type','Budget','Trip_Duration_Days']]
 ```
 
-⚙ Real-Time Implementation
+⚙️ Real-Time Implementation
 
 Deployed via Streamlit, allowing users to:
+
 1️⃣ Select preferences (From City, Destination, Type, Duration, Budget)
 2️⃣ Get Top 5 Recommended Packages with Similarity Scores
 3️⃣ View details like Accommodation, Season, Transport Mode
