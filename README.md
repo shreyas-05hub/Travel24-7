@@ -125,8 +125,6 @@ Interactive dashboard built to visualize insights such as:
 1️⃣ Convert user input → feature vector  
 2️⃣ Compute cosine similarity with all records  
 3️⃣ Retrieve Top 5 packages with highest similarity  
-
-**Sample Code Snippet:**
 ```python
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.metrics.pairwise import cosine_similarity
