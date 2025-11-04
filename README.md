@@ -272,7 +272,6 @@ The Flask backend exposes endpoints for:
 
 ---
 
-
 ## 🚀 Future Enhancements
 
 🚗 Integrate Google Maps API to display trip locations  
@@ -280,6 +279,18 @@ The Flask backend exposes endpoints for:
 🧮 Adopt Deep Learning (Collaborative Filtering)  
 🎯 Add advanced filters by season or budget range  
 📊 Extend Power BI dashboard for real-time analytics  
+
+---
+
+### 🧱 Frontend (Vite React)
+```bash
+cd frontend
+npm install
+npm run dev
+
+cd backend
+pip install -r requirements.txt
+python app.py
 
 ---
 
