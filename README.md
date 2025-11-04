@@ -127,14 +127,12 @@ Interactive dashboard built to visualize insights such as:
 3️⃣ Retrieve Top 5 packages with highest similarity  
 
 **Sample Code Snippet:**
-
 ```python
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-
 def recommend_packages(from_city, destination, destination_type, duration, budget, top_n=5):
-    user_df = pd.DataFrame({
+user_df = pd.DataFrame({
         'From_City': [from_city],
         'Destination': [destination],
         'Destination_Type': [destination_type],
@@ -148,7 +146,6 @@ def recommend_packages(from_city, destination, destination_type, duration, budge
 ⚙ Real-Time Implementation
 
 Deployed via Streamlit, allowing users to:
-
 1️⃣ Select preferences (From City, Destination, Type, Duration, Budget)
 2️⃣ Get Top 5 Recommended Packages with Similarity Scores
 3️⃣ View details like Accommodation, Season, Transport Mode
