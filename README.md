@@ -145,7 +145,6 @@ def recommend_packages(from_city, destination, destination_type, duration, budge
     similarity = cosine_similarity(user_vector, dataset_vectors)
     top_indices = similarity[0].argsort()[-top_n:][::-1]
     return df.iloc[top_indices][['Destination','Package_Type','Budget','Trip_Duration_Days']]
-
 ⚙ Real-Time Implementation
 
 Deployed via Streamlit, allowing users to:
