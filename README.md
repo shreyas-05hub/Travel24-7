@@ -142,6 +142,7 @@ user_df = pd.DataFrame({
     top_indices = similarity[0].argsort()[-top_n:][::-1]
     return df.iloc[top_indices][['Destination','Package_Type','Budget','Trip_Duration_Days']]
 ```
+
 ⚙ Real-Time Implementation
 
 Deployed via Streamlit, allowing users to:
