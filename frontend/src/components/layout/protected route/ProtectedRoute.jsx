@@ -9,30 +9,36 @@ const ProtectedRoute = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [showLoginPopup, setShowLoginPopup] = useState(false);
+  const [redirectedFromProtected, setRedirectedFromProtected] = useState(false);
 
-  // ✅ Detect unknown user trying to access protected route
+  // ✅ Detect unauthorized access attempt
   useEffect(() => {
-    if (!user && location.pathname !== "/home") {
-      navigate("/home", { replace: true }); // redirect to home
-      setShowLoginPopup(true); // show popup
+    if (!user && location.pathname === "/favourites") {
+      // mark that we tried to access protected route
+      setRedirectedFromProtected(true);
+      navigate("/home", { replace: true, state: { from: "favourites" } });
+    }
+
+    // show popup if redirected from protected route
+    if (location.state?.from === "favourites" && !user) {
+      setShowLoginPopup(true);
+      // remove the state so it doesn't trigger again
+      navigate("/home", { replace: true, state: {} });
     }
   }, [user, location, navigate]);
 
-  // ✅ If user logged in, allow route
-  if (user) {
-    return children;
+  // ✅ Prevent access if not logged in
+  if (!user && location.pathname !== "/home") {
+    return <Navigate to="/home" replace />;
   }
 
-  // ✅ If user not logged in and is on home page, render home normally
+  // ✅ Show login popup after redirect
   return (
     <>
       {children}
-
-      {/* ✅ Login popup overlay */}
       {showLoginPopup && (
         <div
           onClick={(e) => {
-            // Close popup when clicking outside of modal box
             if (e.target.classList.contains("login-overlay")) {
               setShowLoginPopup(false);
             }

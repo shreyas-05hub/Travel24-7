@@ -4,19 +4,26 @@ import packageData from "../../data/packageData";
 import { usePackageData } from "./PackageProvider";
 import { useFromcityData } from "../destinations/FromcityContext";
 import AOS from "aos";
+import { useNavigate } from "react-router-dom";
+import useTravelCost from "../../context/TravelContext";
+import Login from "../../../../pages/Login";
 
 const PackagesData = () => {
   const [favorites, setFavorites] = useState([]);
   const [feedback, setFeedback] = useState({});
   const [rangeValue, setRangeValue] = useState(3000);
   const [duration, setDuration] = useState(2);
-
+  const Navigate=useNavigate()
   const { Fromcity } = useFromcityData();
   const { destination } = useDestinationData();
   const { setPackage } = usePackageData();
 
   const data = packageData[destination] || {};
   const { destinationTypes = [] } = data;
+
+  const { user } = useTravelCost();
+const [showLoginPopup, setShowLoginPopup] = useState(false);
+
 
   // ✅ Safely load favorites after client-side hydration
   useEffect(() => {
@@ -107,9 +114,13 @@ const PackagesData = () => {
       setPackage(finalPackage);
       if (typeof window !== "undefined") {
         localStorage.setItem("lastPackage", JSON.stringify(finalPackage));
+        localStorage.setItem("showPackagesLink", "true");
+        window.dispatchEvent(new Event("storage")); // trigger Navbar update immediately
+
       }
 
       alert(`Recommendations received for ${destination}!`);
+      Navigate("/packages")
     } catch (error) {
       console.error("Error sending data:", error);
       alert("Failed to send data to backend. Check console for details.");
@@ -164,8 +175,14 @@ const PackagesData = () => {
   };
 
   const toggleFavorite = (destination, type) => {
-    const key = `${destination}_${type}`;
-    let updatedFavorites;
+  // ✅ Check if user is logged in
+  if (!user) {
+    setShowLoginPopup(true);
+    return; // stop further execution
+  }
+
+  const key = `${destination}_${type}`;
+  let updatedFavorites;
 
   if (favorites.includes(key)) {
     updatedFavorites = favorites.filter((fav) => fav !== key);
@@ -173,18 +190,19 @@ const PackagesData = () => {
     updatedFavorites = [...favorites, key];
   }
 
-    setFavorites(updatedFavorites);
-    localStorage.setItem(
-      "favoritePackageTypes",
-      JSON.stringify(updatedFavorites)
-    );
-  };
+  setFavorites(updatedFavorites);
+  localStorage.setItem(
+    "favoritePackageTypes",
+    JSON.stringify(updatedFavorites)
+  );
+};
+
   useEffect(() => {
       AOS.init({ duration: 1000, once: true });
       AOS.refresh();
     }, []);
   return (
-    <div className="container-fluid my-4">
+    <div className="container-fluid my-4" style={{ position: "relative" }}>
       <div className="container">
         <h5>Enter Duration</h5>
         <input
@@ -288,8 +306,48 @@ const PackagesData = () => {
               </div>
             );
           })}
+          
         </div>
+        
       </div>
+      {showLoginPopup && (
+  <div
+    onClick={(e) => {
+      if (e.target.classList.contains("login-overlay")) {
+        setShowLoginPopup(false);
+      }
+    }}
+    className="login-overlay"
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 9999,
+      animation: "fadeIn 0.3s ease",
+    }}
+  >
+    <div
+      style={{
+        backgroundColor: "#fff",
+        borderRadius: "12px",
+        width: "420px",
+        boxShadow: "0 4px 25px rgba(0,0,0,0.2)",
+        padding: "30px 40px",
+        position: "relative",
+        animation: "popIn 0.3s ease",
+      }}
+    >
+      <h5 className="text-center mb-3">Please login to save favourites ❤️</h5>
+      <Login onSuccess={() => setShowLoginPopup(false)} />
+    </div>
+  </div>
+)}
     </div>
   );
 };

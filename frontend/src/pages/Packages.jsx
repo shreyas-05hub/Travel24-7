@@ -6,7 +6,7 @@ import PackageType from "../components/layout/ui/packages/PackageType";
 const Packages = () => {
   return (
     <div>
-      <PackagesData />
+      {/* <PackagesData /> */}
       <PackageType />
     </div>
   );

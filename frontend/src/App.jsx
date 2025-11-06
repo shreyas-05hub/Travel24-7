@@ -50,25 +50,25 @@ const App = () => {
                     <Route
                       path="/destinations"
                       element={
-                        <ProtectedRoute>
+                        // <ProtectedRoute>
                           <Destinations />
-                        </ProtectedRoute>
+                        // </ProtectedRoute>
                       }
                     />
                     <Route
                       path="/packages"
                       element={
-                        <ProtectedRoute>
+                        // <ProtectedRoute>
                           <Packages />
-                        </ProtectedRoute>
+                        // </ProtectedRoute>
                       }
                     />
                     <Route
                       path="/packages/:packageID"
                       element={
-                        <ProtectedRoute>
+                        // <ProtectedRoute>
                           <PackageDetails />
-                        </ProtectedRoute>
+                        // </ProtectedRoute>
                       }
                     />
                     {/* <Route

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDestinationData } from "./DestinationContext";
 import AOS from "aos";
+import { useRef } from "react";
+import PackagesData from "../packages/PackagesData"; // ✅ import component
 
 // ✅ Import all images properly
 import agra from "../../../../assets/agra.jpeg";
@@ -32,6 +34,10 @@ import varanasi from "../../../../assets/varanasi.jpeg";
 const ResultGridList = () => {
   const { setDestination } = useDestinationData();
   const [isListView, setIsListView] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedDestination, setSelectedDestination] = useState(null);
+  const cardRefs = useRef({});
+  const [modalTop, setModalTop] = useState(0);
 
   const getDestination = (title = "Bengaluru") => {
     setDestination(title);
@@ -77,42 +83,104 @@ const ResultGridList = () => {
     AOS.refresh();
   }, []);
 
-  return (
-    <div className="container-fluid my-4 text-center" data-aos="zoom-in">
-      <button className="btn btn-success my-3" onClick={changeView}>
-        {isListView ? "Switch to Grid View" : "Switch to List View"}
-      </button>
+  const openPackagesModal = (title) => {
+  setDestination(title);
+  localStorage.setItem("lastDestination", title);
+  setSelectedDestination(title);
 
-      <h3 className="my-3">Select Your Destination</h3>
-      <div className="row">
-        {cities.map((ele, i) => (
-          <div className={`${columnClass} my-3`} key={i}>
-            <Link
-              className="text-decoration-none text-dark"
-              to={"/packages"}
-              onClick={() => getDestination(ele.title)}
-            >
-              <div className={`card ${isListView ? "w-50 mx-auto" : ""} h-100`}>
-                <img
-                  src={ele.image}
-                  className="card-img-top h-100"
-                  alt={ele.title}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{ele.title}</h5>
-                  <hr />
-                  <p className="card-text">{ele.description}</p>
-                  <button className="btn btn-primary">
-                    See Available Packages
-                  </button>
-                </div>
-              </div>
-            </Link>
-          </div>
-        ))}
+  const cardElement = cardRefs.current[title];
+  if (cardElement) {
+    const rect = cardElement.getBoundingClientRect();
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    setModalTop(rect.top + scrollTop); // absolute position relative to document
+  }
+
+  setShowModal(true);
+};
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedDestination(null);
+  };
+
+  return (
+  <div className="container-fluid my-4 text-center" data-aos="zoom-in">
+    <button className="btn btn-success my-3" onClick={changeView}>
+      {isListView ? "Switch to Grid View" : "Switch to List View"}
+    </button>
+
+    <h3 className="my-3">Select Your Destination</h3>
+
+    <div className="row">
+      {cities.map((ele, i) => (
+  <div className={`${columnClass} my-3`} key={i} ref={(el) => (cardRefs.current[ele.title] = el)}  onClick={() => openPackagesModal(ele.title)}>
+    <div className={`card ${isListView ? "w-50 mx-auto" : ""} h-100`} style={{ cursor: "pointer" }}>
+      <img src={ele.image} className="card-img-top h-100" alt={ele.title} />
+      <div className="card-body">
+        <h5 className="card-title">{ele.title}</h5>
+        <hr />
+        <p className="card-text">{ele.description}</p>
+        <button className="btn btn-primary">
+          See Available Packages
+        </button>
       </div>
     </div>
-  );
+  </div>
+))}
+
+      {/* ✅ Single Modal outside map */}
+    {showModal && (
+  <div
+    className="modal fade show"
+    tabIndex="-1"
+    role="dialog"
+    onClick={closeModal} // ✅ Close when backdrop is clicked
+    style={{
+      display: "block",
+      backgroundColor: "rgba(0, 0, 0, 0.6)",
+      position: "absolute",
+      top: `${modalTop}px`,
+      left: 0,
+      width: "100%",
+      zIndex: 1050,
+    }}
+  >
+    <div
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+      }}
+      onClick={(e) => e.stopPropagation()} // ✅ Prevent closing when modal content is clicked
+    >
+      <div className="modal-content shadow-lg border-0">
+        <div className="modal-header bg-primary text-white">
+          <h5 className="modal-title">
+            Available Packages for {selectedDestination}
+          </h5>
+          <button
+            type="button"
+            className="btn-close btn-close-white"
+            onClick={closeModal}
+          ></button>
+        </div>
+
+        <div className="modal-body">
+          <PackagesData />
+        </div>
+
+        <div className="modal-footer">
+          <button className="btn btn-secondary" onClick={closeModal}>
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+    </div>
+  </div>
+);
+
 };
 
 export default ResultGridList;

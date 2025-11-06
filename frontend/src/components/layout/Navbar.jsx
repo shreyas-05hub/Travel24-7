@@ -7,6 +7,8 @@ import "./navlink.css";
 import AOS from "aos";
 
 const Navbar = () => {
+  const [showPackagesLink, setShowPackagesLink] = useState(false);
+
   useEffect(() => {
     AOS.init({
       // Global settings for AOS
@@ -15,6 +17,18 @@ const Navbar = () => {
     });
     AOS.refresh(); // Recalculate positions of elements
   }, []);
+    useEffect(() => {
+  const handleStorageChange = () => {
+    const flag = localStorage.getItem("showPackagesLink");
+    setShowPackagesLink(flag === "true");
+  };
+
+  window.addEventListener("storage", handleStorageChange);
+  return () => window.removeEventListener("storage", handleStorageChange);
+}, []);
+
+
+
 
   const [isToggle, setToggle] = useState(true);
   const updatedToggle = () => {
@@ -58,33 +72,34 @@ const Navbar = () => {
         >
           {/* Bootstrap class for unordered list of links */}
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-            {/* Nav Item (li) and Nav Link (NavLink) classes */}
-            <li className="nav-item">
-              <NavLink to="/home" className="nav-link">
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to="/destinations" className="nav-link">
-                Destinations
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to="/packages" className="nav-link">
-                Packages
-              </NavLink>
-            </li>
-            {/* <li className="nav-item">
-              <NavLink to="/recommendation" className="nav-link">
-                AI Recommendations
-              </NavLink>
-            </li> */}
-            <li className="nav-item">
-              <NavLink to={"/favourites"} className={"nav-link"}>
-                Favourites
-              </NavLink>
-            </li>
-          </ul>
+  <li className="nav-item">
+    <NavLink to="/home" className="nav-link">
+      Home
+    </NavLink>
+  </li>
+  <li className="nav-item">
+    <NavLink to="/destinations" className="nav-link">
+      Destinations
+    </NavLink>
+  </li>
+  {showPackagesLink && (
+  <li className="nav-item">
+    <NavLink to="/packages" className="nav-link">
+      Packages
+    </NavLink>
+  </li>
+)}
+
+  {/* Show favourites link only if logged in */}
+  {user && (
+    <li className="nav-item">
+      <NavLink to="/favourites" className="nav-link">
+        Favourites
+      </NavLink>
+    </li>
+  )}
+</ul>
+
           <div className="d-flex gap-3 align-items-center">
             {user && (
               <div className="d-flex align-items-center gap-1">
